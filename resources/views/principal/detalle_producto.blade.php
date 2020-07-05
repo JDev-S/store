@@ -1,15 +1,16 @@
 @extends('welcome2')
 @section('contenido')
-
 <div class="breadcrumbs ">
     <div class="container">
         <div class="current-name">
-            Replacement Rod Adjusting
+
+            {{$info[0]->nombre_alimento}}
 
         </div>
         <ul class="breadcrumb">
-            <li><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=common/home"><i class="fa fa-home"></i></a></li>
-            <li><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135">Replacement Rod Adjusting</a></li>
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="productos_categoria?categoria={{$info[0]->id_categoria}}">{{$info[0]->nombre_categoria}}</a></li>
+            <li><a href="detalle_producto?producto={{$info[0]->id_alimento}}">{{$info[0]->nombre_alimento}}</a></li>
         </ul>
     </div>
 </div>
@@ -34,225 +35,52 @@
                         <div class="so-loadeding"></div>
 
                         <div class="large-image  ">
-                            <img itemprop="image" class="product-image-zoom lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-1000x1000.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-1000x1000.jpg" data-zoom-image="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-1000x1000.jpg" title="Replacement Rod Adjusting" alt="Replacement Rod Adjusting" sizes="718px">
+                            <img itemprop="image" class="product-image-zoom lazyautosizes lazyloaded" data-sizes="auto" src="{{$info[0]->fotografia_miniatura}}" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-1000x1000.jpg" data-zoom-image="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-1000x1000.jpg" title="Apple Cinema HD" alt="Apple Cinema HD" sizes="718px">
                         </div>
 
                         <div id="thumb-slider" class="full_slider  contentslider--default" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column0="4" data-items_column1="3" data-items_column2="5" data-items_column3="3" data-items_column4="2" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
-                            <div class="image-additional">
-                                <a data-index="0" class="img thumbnail  active" data-image="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-1000x1000.jpg" title="Replacement Rod Adjusting">
-                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-150x150.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-150x150.jpg" title="Replacement Rod Adjusting" alt="Replacement Rod Adjusting" sizes="134px">
+                            
+                            <?php 
+                            $i=0;
+                            foreach($imagenes as $imagen)
+                            {
+                                
+                                echo ' <div class="image-additional">
+                                <a data-index="'.$i.'" class="img thumbnail" data-image="'.$imagen->imagen_muestra.'" title="Apple Cinema HD">
+                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="'.$imagen->imagen_muestra.'" data-src="'.$imagen->imagen_muestra.'" title="img" alt="img HD" sizes="134px">
                                 </a>
-                            </div>
-                            <div class="image-additional">
-                                <a data-index="1" class="img thumbnail " data-image="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/3-1000x1000.jpg" title="Replacement Rod Adjusting">
-                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/3-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/3-270x270.jpg" title="Replacement Rod Adjusting" alt="Replacement Rod Adjusting" sizes="134px">
-                                </a>
-                            </div>
-                            <div class="image-additional">
-                                <a data-index="2" class="img thumbnail " data-image="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/5-1000x1000.jpg" title="Replacement Rod Adjusting">
-                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/5-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/5-270x270.jpg" title="Replacement Rod Adjusting" alt="Replacement Rod Adjusting" sizes="134px">
-                                </a>
-                            </div>
+                            </div>';
+                                $i++;
+                            }
+                           
+
+                            ?>
 
                         </div>
 
-
-                        <script type="text/javascript">
-                            <!--
-                            $(document).ready(function() {
-                                var zoomCollection = '.large-image img';
-                                $(zoomCollection).elevateZoom({
-                                    //value zoomType (window,inner,lens)
-                                    zoomType: "inner",
-                                    lensSize: '250',
-                                    easing: false,
-                                    scrollZoom: true,
-                                    gallery: 'thumb-slider',
-                                    cursor: 'pointer',
-                                    galleryActiveClass: "active",
-                                });
-                                $(zoomCollection).bind('touchstart', function() {
-                                    $(zoomCollection).unbind('touchmove');
-                                });
-
-                                $('.large-image img').magnificPopup({
-                                    items: [{
-                                            src: 'https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-1000x1000.jpg'
-                                        },
-                                        {
-                                            src: 'https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/3-1000x1000.jpg'
-                                        },
-                                        {
-                                            src: 'https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/5-1000x1000.jpg'
-                                        },
-                                    ],
-                                    gallery: {
-                                        enabled: true,
-                                        preload: [0, 2]
-                                    },
-                                    type: 'image',
-                                    mainClass: 'mfp-fade',
-                                    callbacks: {
-                                        open: function() {
-                                            var activeIndex = parseInt($('#thumb-slider .img.active').attr('data-index'));
-                                            var magnificPopup = $.magnificPopup.instance;
-                                            magnificPopup.goTo(activeIndex);
-                                        }
-                                    }
-
-                                });
-                            });
-                            //
-
-                            -->
-                        </script>
                     </div>
 
                     <div class="content-product-right col-md-7 col-sm-12 col-xs-12" itemprop="offerDetails" itemscope="" itemtype="http://schema.org/Product">
 
                         <div class="title-product">
-                            <h1 itemprop="name">Replacement Rod Adjusting</h1>
-                        </div>
-
-                        <div class="box-review" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-
-                            <div class="rating">
-                                <div class="rating-box">
-                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> </div>
-                            </div>
-                            <a class="reviews_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a>
-                            <span class="order-num">Orders (1)</span>
-
+                            <h1 itemprop="name">{{$info[0]->nombre_alimento}}</h1>
                         </div>
 
                         <div class="product_page_price price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 
                             <span class="price-new">
-                                <span itemprop="price" content="45.0000" id="price-special">$45.00</span>
+                                <span itemprop="price" content="55.0000" id="price-special">${{$info[0]->precio}}</span>
                                 <meta itemprop="priceCurrency" content="USD">
                             </span>
                             <span class="price-old" id="price-old">
 
                             </span>
 
-
-
-                            <span class="label-product label-sale">
-                                -12%
-                            </span>
-
-
-
-
                         </div>
 
-
-
-                        <ul class="list-unstyled text-success">
-
-                            <li><strong>10 or more $88.00</strong> </li>
-
-                            <li><strong>20 or more $77.00</strong> </li>
-
-                            <li><strong>30 or more $66.00</strong> </li>
-                        </ul>
-
-
-                        <div class="product-box-desc">
-                            <div class="inner-box-desc">
-
-                                <div class="brand" itemprop="brand" itemscope="" itemtype="http://schema.org/Brand">
-                                    <span>Brand: </span><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/manufacturer/info&amp;manufacturer_id=7" itemprop="url"><span itemprop="name">Hewlett-Packard </span></a></div>
-
-                                <div class="model"><span>Product Code: </span> n12</div>
-
-                                <div class="reward"><span>Reward Points:</span> 100</div>
-
-                                <div class="stock"><span>Availability:</span> <i class="fa fa-check-square-o"></i> In Stock</div>
-                            </div>
-
-
-                            <a class="image-popup-sizechart" href="image/catalog/demo/size-chart.jpg">Size Chart </a>
-
-                        </div>
-
-                        <div class="short_description form-group" itemprop="description">
-                            <h3>OverView</h3>
-                            Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ev...
-                        </div>
-
-
-
-                        <div class="countdown_box hidden-xs">
-                            <div class="countdown_inner">
-                                <script type="text/javascript">
-                                    $(function() {
-                                        var austDay = new Date(2024, 05 - 1, 11);
-                                        $('.defaultCountdown-').countdown(austDay, function(event) {
-                                            var $this = $(this).html(event.strftime('' +
-                                                '<div class="time-item time-day"><div class="num-time">%D</div><div class="name-time">Day%!d </div></div>' +
-                                                '<div class="time-item time-hour"><div class="num-time">%H</div><div class="name-time">Hour%!H</div></div>' +
-                                                '<div class="time-item time-min"><div class="num-time">%M</div><div class="name-time">Min </div></div>' +
-                                                '<div class="time-item time-sec"><div class="num-time">%S</div><div class="name-time">Sec</div></div>'));
-                                        });
-
-                                    });
-
-                                </script>
-                                <div class="defaultCountdown-">
-                                    <div class="time-item time-day">
-                                        <div class="num-time">1406</div>
-                                        <div class="name-time">Days </div>
-                                    </div>
-                                    <div class="time-item time-hour">
-                                        <div class="num-time">00</div>
-                                        <div class="name-time">Hours</div>
-                                    </div>
-                                    <div class="time-item time-min">
-                                        <div class="num-time">03</div>
-                                        <div class="name-time">Min </div>
-                                    </div>
-                                    <div class="time-item time-sec">
-                                        <div class="num-time">51</div>
-                                        <div class="name-time">Sec</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                         <div id="product">
-
-                            <h3>Available Options</h3>
-
-
-
-                            <div class="form-group required ">
-                                <label class="control-label" for="input-option500">Select</label>
-                                <select name="option[500]" id="input-option500" class="form-control width50">
-                                    <option value=""> --- Please Select --- </option>
-                                    <option value="526">Red
-                                        (+$4.00)
-                                    </option>
-                                    <option value="527">Blue
-                                        (+$3.00)
-                                    </option>
-                                    <option value="528">Green
-                                        (+$1.00)
-                                    </option>
-                                    <option value="529">Yellow
-                                        (+$2.00)
-                                    </option>
-                                </select>
-                            </div>
-
-
-
-
-
-
-
-
 
 
                             <div class="box-cart clearfix form-group">
@@ -262,7 +90,7 @@
                                         <div class="input-group quantity-control" unselectable="on" style="user-select: none;">
                                             <span class="input-group-addon product_quantity_down fa fa-minus"></span>
                                             <input class="form-control" type="text" name="quantity" value="1">
-                                            <input type="hidden" name="product_id" value="135">
+                                            <input type="hidden" name="product_id" value="137">
                                             <span class="input-group-addon product_quantity_up fa fa-plus"></span>
                                         </div>
                                     </div>
@@ -273,10 +101,7 @@
                                         <div class="add-to-links wish_comp">
                                             <ul class="blank">
                                                 <li class="wishlist">
-                                                    <a onclick="wishlist.add(135);"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a onclick="compare.add(135);"><i class="fa fa-retweet"></i></a>
+                                                    <a onclick="wishlist.add(137);"><i class="fa fa-heart"></i></a>
                                                 </li>
 
                                             </ul>
@@ -291,8 +116,8 @@
                                 <div class="title-share">Share This</div>
                                 <div class="title-share"></div>
                                 <div class="wrap-content">
-                                    <div class="addthis_inline_share_toolbox" data-url="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135" data-title="Replacement Rod Adjusting" style="clear: both;">
-                                        <div id="atstbx" class="at-resp-share-element at-style-responsive addthis-smartlayers addthis-animated at4-show at-mobile" aria-labelledby="at-1a720922-1167-4146-b376-0d34a8919bb3" role="region"><span id="at-1a720922-1167-4146-b376-0d34a8919bb3" class="at4-visually-hidden">AddThis Sharing Buttons</span>
+                                    <div class="addthis_inline_share_toolbox" data-url="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137" data-title="Apple Cinema HD" style="clear: both;">
+                                        <div id="atstbx" class="at-resp-share-element at-style-responsive addthis-smartlayers addthis-animated at4-show at-mobile" aria-labelledby="at-e31c79b7-426b-4088-8f61-9d524b95e912" role="region"><span id="at-e31c79b7-426b-4088-8f61-9d524b95e912" class="at4-visually-hidden">AddThis Sharing Buttons</span>
                                             <div class="at-share-btn-elements"><a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-facebook" style="background-color: rgb(59, 89, 152); border-radius: 0px;"><span class="at4-visually-hidden">Share to Facebook</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-facebook-1" class="at-icon at-icon-facebook" style="fill: rgb(255, 255, 255); width: 20px; height: 20px;">
                                                             <title id="at-svg-facebook-1">Facebook</title>
                                                             <g>
@@ -322,15 +147,6 @@
                             </div>
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
                             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529be2200cc72db5"></script>
-
-                            <div id="tab-tags">
-                                Tags:
-
-                                <a class="btn btn-primary btn-sm 22" href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/search&amp;tag=Yutculpa">Yutculpa</a>
-
-
-
-                            </div>
 
                         </div>
 
@@ -938,7 +754,7 @@
 
                                                                 </select>
                                                                 <input type="hidden" name="code" value="">
-                                                                <input type="hidden" name="redirect" value="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135">
+                                                                <input type="hidden" name="redirect" value="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;path=177&amp;product_id=137">
                                                             </form>
                                                         </div>
                                                     </div>
@@ -951,7 +767,7 @@
                                                                     <option value="en-gb" selected="selected">English</option>
                                                                 </select>
                                                                 <input type="hidden" name="code" value="">
-                                                                <input type="hidden" name="redirect" value="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135">
+                                                                <input type="hidden" name="redirect" value="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;path=177&amp;product_id=137">
                                                             </form>
                                                         </div>
                                                     </div>
@@ -1068,6 +884,32 @@
                                                             <div class="item">
                                                                 <div class="product-thumb transition">
                                                                     <div class="image">
+                                                                        <span class="bt-sale">-15%</span>
+                                                                        <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137">
+                                                                            <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-270x270.jpg" alt="Apple Cinema HD" sizes="131px">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="caption">
+                                                                        <h4 class="font-ct"><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137" title="Apple Cinema HD">Apple Cinema HD</a></h4>
+                                                                        <p class="price">
+                                                                            <span class="price-new">$55.00</span>
+                                                                            <span class="price-old">$65.00</span>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="button-group">
+                                                                        <button type="button" onclick="cart.add('137');">
+                                                                            <span class="">Add To Cart</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col col-sm-4 col-xs-6">
+                                                        <div class="form-box">
+                                                            <div class="item">
+                                                                <div class="product-thumb transition">
+                                                                    <div class="image">
                                                                         <span class="bt-sale">-12%</span>
                                                                         <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135">
                                                                             <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/10-270x270.jpg" alt="Replacement Rod Adjusting" sizes="131px">
@@ -1106,32 +948,6 @@
                                                                     </div>
                                                                     <div class="button-group">
                                                                         <button type="button" onclick="cart.add('116');">
-                                                                            <span class="">Add To Cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col col-sm-4 col-xs-6">
-                                                        <div class="form-box">
-                                                            <div class="item">
-                                                                <div class="product-thumb transition">
-                                                                    <div class="image">
-                                                                        <span class="bt-sale">-15%</span>
-                                                                        <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137">
-                                                                            <img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/digital/12-270x270.jpg" alt="Apple Cinema HD" sizes="131px">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="caption">
-                                                                        <h4 class="font-ct"><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137" title="Apple Cinema HD">Apple Cinema HD</a></h4>
-                                                                        <p class="price">
-                                                                            <span class="price-new">$55.00</span>
-                                                                            <span class="price-old">$65.00</span>
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="button-group">
-                                                                        <button type="button" onclick="cart.add('137');">
                                                                             <span class="">Add To Cart</span>
                                                                         </button>
                                                                     </div>
@@ -1193,49 +1009,36 @@
                         <div class="producttab ">
                             <div class="tabsslider   horizontal-tabs  col-xs-12">
                                 <ul class="nav nav-tabs font-sn">
-                                    <li class="active"><a data-toggle="tab" href="#tab-description" class="active">Description</a></li>
-
-
-                                    <li class=""><a href="#tab-review" data-toggle="tab" class="">Reviews (0)</a></li>
-
-                                    <li><a href="#tab-contentshipping" data-toggle="tab">Shipping Methods</a></li>
-
-
-
-
-
+                                    <li class="active"><a data-toggle="tab">Descripción</a></li>
                                 </ul>
 
 
                                 <div class="tab-content  col-xs-12">
-                                    <div class="tab-pane active" id="tab-description" style="visibility: visible;">
+                                    <div class="tab-pane active" id="tab-description">
 
-                                        <h3 class="product-property-title"> Item specifics</h3>
+                                        <h3 class="product-property-title">Especificaciones</h3>
                                         <ul class="product-property-list util-clearfix">
 
-
+                                            @foreach($especificaciones as $especificacion)
                                             <li class="property-item">
-                                                <span class="propery-title">Clockspeed</span>
-                                                <span class="propery-des">100mhz</span>
+                                                <span class="propery-title">{{$especificacion->ingrediente}}</span>
+                                                <span class="propery-des">{{$especificacion->descripcion_especificacion}}</span>
                                             </li>
-
+                                            @endforeach
                                         </ul>
 
-                                        <h3 class="product-property-title"> Product Description</h3>
-                                        <div id="collapse-description" class="desc-collapse showdown">
-                                            Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+                                        <h3 class="product-property-title"> Descripción</h3>
+                                        <div id="collapse-description" >
+                                            <p>
+                                            {{$info[0]->descripcion}}
+                                            </p>
+                                          
                                         </div>
 
-                                        <div class="button-toggle">
-                                            <a class="showmore" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="collapse-footer">
-                                                <span class="toggle-more">Show More <i class="fa fa-angle-down"></i></span>
-                                                <span class="toggle-less">Show Less <i class="fa fa-angle-up"></i></span>
-                                            </a>
-                                        </div>
                                     </div>
 
 
-                                    <div class="tab-pane" id="tab-review" style="visibility: hidden;">
+                                    <div class="tab-pane" id="tab-review">
                                         <form class="form-horizontal" id="form-review">
                                             <div id="review">
                                                 <p>There are no reviews for this product.</p>
@@ -1278,7 +1081,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="tab-pane" id="tab-contentshipping" style="visibility: hidden;">
+                                    <div class="tab-pane" id="tab-contentshipping">
                                         <div class="shipping_methods_info">
                                             <!-- shipping method -->
                                             <p><span style="font-size: small;">When you order, you will receive a confirmation email. Once your order is shipped, you will be emailed the tracking information for your order's shipment. You can choose your preferred shipping method on the Order Information page during the checkout process.</span></p>
@@ -1303,186 +1106,10 @@
                     </div>
 
                     <div class="content-product-bottom clearfix">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#product-related" class="active">Related Products</a></li>
-                            <li class=""><a data-toggle="tab" href="#product-upsell" class="">Upsell products</a></li>
-                        </ul>
+                       
                         <div class="tab-content">
-                            <div id="product-related" class="tab-pane fade in active" style="visibility: visible;">
 
-
-
-                                <div class="clearfix module related-horizontal ">
-                                    <h3 class="modtitle hidden"><span>Related Products </span></h3>
-
-                                    <div class="related-products products-list  contentslider owl2-carousel owl2-theme owl2-loaded owl2-responsive-768" data-rtl="no" data-autoplay="no" data-pagination="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="4" data-items_column1="3" data-items_column2="2" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
-                                        <!-- Products list -->
-
-
-
-
-
-                                        <div class="owl2-stage-outer">
-                                            <div class="owl2-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 750px;">
-                                                <div class="owl2-item active" style="width: 345px; margin-right: 30px;">
-                                                    <div class="product-layout product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="product-image-container">
-                                                                    <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=67 " title="Srehenderit dolore ">
-                                                                        <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/funiture/9-270x270.jpg " data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/funiture/9-270x270.jpg " title="Srehenderit dolore " class="img-responsive lazyautosizes lazyloaded" sizes="270px">
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="box-label">
-
-
-                                                                    <span class="label-product label-sale">
-                                                                        -12%
-                                                                    </span>
-
-
-                                                                </div>
-
-
-                                                                <div class="button-group cartinfo--left">
-                                                                    <button class="addToCart btn-button" type="button" title="Add to Cart" onclick="cart.add('67', '1');"><i class="fa fa-shopping-basket"></i><span>Add to Cart</span></button>
-
-                                                                    <button class="wishlist btn-button" type="button" title="Add to Wish List" onclick="wishlist.add('67');"><i class="fa fa-heart-o"></i><span>Add to Wish List</span></button>
-                                                                    <button class="compare btn-button" type="button" title="Compare this Product" onclick="compare.add('67');"><i class="fa fa-refresh"></i><span>Compare this Product</span></button>
-                                                                    <a class="quickview iframe-link visible-lg btn-button" title="Quickview" data-fancybox-type="iframe" href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=extension/soconfig/quickview&amp;product_id=67"> <i class="fa fa-eye"></i><span>Quickview</span> </a>
-
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="right-block">
-
-
-                                                                <div class="ratings">
-                                                                    <div class="rating-box">
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <h4><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=67 ">Srehenderit dolore </a></h4>
-
-
-                                                                <div class="price">
-
-                                                                    <span class="price-new">$80.00 </span> <span class="price-old">$91.00 </span>
-
-                                                                </div>
-
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="owl2-item active" style="width: 345px; margin-right: 30px;">
-                                                    <div class="product-layout product-grid">
-                                                        <div class="product-item-container">
-                                                            <div class="left-block">
-                                                                <div class="product-image-container">
-                                                                    <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=71 " title="Consecte quichuck T12 ">
-                                                                        <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/toys/1-270x270.jpg " data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/toys/1-270x270.jpg " title="Consecte quichuck T12 " class="img-responsive lazyautosizes lazyloaded" sizes="270px">
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="box-label">
-
-
-
-                                                                </div>
-
-
-                                                                <div class="button-group cartinfo--left">
-                                                                    <button class="addToCart btn-button" type="button" title="Add to Cart" onclick="cart.add('71', '1');"><i class="fa fa-shopping-basket"></i><span>Add to Cart</span></button>
-
-                                                                    <button class="wishlist btn-button" type="button" title="Add to Wish List" onclick="wishlist.add('71');"><i class="fa fa-heart-o"></i><span>Add to Wish List</span></button>
-                                                                    <button class="compare btn-button" type="button" title="Compare this Product" onclick="compare.add('71');"><i class="fa fa-refresh"></i><span>Compare this Product</span></button>
-                                                                    <a class="quickview iframe-link visible-lg btn-button" title="Quickview" data-fancybox-type="iframe" href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=extension/soconfig/quickview&amp;product_id=71"> <i class="fa fa-eye"></i><span>Quickview</span> </a>
-
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="right-block">
-
-
-                                                                <div class="ratings">
-                                                                    <div class="rating-box">
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-
-
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <h4><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=71 ">Consecte quichuck T12 </a></h4>
-
-
-                                                                <div class="price">
-
-                                                                    <span class="price-new">$61.00 </span>
-
-                                                                </div>
-
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl2-controls">
-                                            <div class="owl2-nav">
-                                                <div class="owl2-prev" style="display: none;"></div>
-                                                <div class="owl2-next" style="display: none;"></div>
-                                            </div>
-                                            <div class="owl2-dots" style="display: none;"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div id="product-upsell" class="tab-pane fade" style="visibility: hidden;">
+                            <div id="product-upsell" class="tab-pane fade">
                                 <!-- default Grid  -->
                                 <div class="module so-extraslider-ltr upsell-product">
 
@@ -1493,7 +1120,7 @@
 
 
 
-                                        <div id="so_extra_slider_18732040091593923909" class="so-extraslider buttom-type1 preset00-4 preset01-3 preset02-3 preset03-2 preset04-1 button-type1">
+                                        <div id="so_extra_slider_11774888091593925373" class="so-extraslider buttom-type1 preset00-4 preset01-3 preset02-3 preset03-2 preset04-1 button-type1">
                                             <!-- Begin extraslider-inner -->
                                             <div class="owl2-controls">
                                                 <div class="owl2-nav">
@@ -1524,7 +1151,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=105" target="_self" title="Andouille bresaolav ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/funiture/2-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/funiture/2-270x270.jpg" alt="Andouille bresaolav" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/funiture/2-270x270.jpg" alt="Andouille bresaolav" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -1603,7 +1230,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=123" target="_self" title="Backpacks ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/1-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/1-270x270.jpg" alt="Backpacks" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/1-270x270.jpg" alt="Backpacks" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -1682,7 +1309,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=80" target="_self" title="Balltip nullaelit ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/2-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/2-270x270.jpg" alt="Balltip nullaelit" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/2-270x270.jpg" alt="Balltip nullaelit" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -1761,7 +1388,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=114" target="_self" title="Beefribs tenderloin ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/3-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/3-270x270.jpg" alt="Beefribs tenderloin" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/3-270x270.jpg" alt="Beefribs tenderloin" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -1840,7 +1467,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=84" target="_self" title="Benderloin officia ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/5-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/5-270x270.jpg" alt="Benderloin officia" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/5-270x270.jpg" alt="Benderloin officia" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -1919,7 +1546,7 @@
                                                                         <div class="left-block">
                                                                             <div class="product-image-container 	">
                                                                                 <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=122" target="_self" title="Bottomwear ">
-                                                                                    <img data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/7-270x270.jpg" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/7-270x270.jpg" alt="Bottomwear" class="lazyautosizes lazyloaded" sizes="218px">
+                                                                                    <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/cache/catalog/demo/product/fashion/7-270x270.jpg" alt="Bottomwear" class="lazyload">
                                                                                 </a>
                                                                             </div>
                                                                             <div class="box-label">
@@ -2119,7 +1746,7 @@
                                                                 });
                                                             });
                                                         }
-                                                    })("#so_extra_slider_18732040091593923909 ");
+                                                    })("#so_extra_slider_11774888091593925373 ");
                                                 });
                                                 //]]>
 
@@ -2150,174 +1777,14 @@
                 <h3 class="modtitle"><span>Categories </span></h3>
                 <div class="mod-content box-category">
                     <ul class="accordion" id="accordion-category">
-
+                        @foreach($categorias as $categoria)
                         <li class="panel">
 
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=129 ">Automotive &amp; Motorcycle </a>
-
-
-
+                            <a href="/productos_categoria?categoria={{$categoria->id_categoria}}">{{$categoria->nombre_categoria}} </a>
                         </li>
 
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=182 ">Camera &amp; Photo </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=178 ">Computers </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=18 ">Digital &amp; Electronics </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=132 ">Electronics </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=179 ">Electronics </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=57 ">Furniture &amp; Decor </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=180 ">Game &amp; Accessories </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=157 ">Health &amp; Beauty </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=152 ">Holiday Supplies &amp; Gifts </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=181 ">Home Audio </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=162 ">Jewelry &amp; Watches </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=177 ">Laptops </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=86 ">Shop </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=176 ">Smartphone &amp; Tablet </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=123 ">Smartphones &amp; Tablets </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=126 ">Sports &amp; Outdoor </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=183 ">Television &amp; Videos </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=110 ">Toys, Kids &amp; Baby </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=24 ">Women’s Fashion </a>
-
-
-
-                        </li>
-
-                        <li class="panel">
-
-                            <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/category&amp;path=25 ">Men’s Clothing </a>
-
-
-
-                        </li>
+                        @endforeach
+            
                     </ul>
                 </div>
             </div>

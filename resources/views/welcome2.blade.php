@@ -231,7 +231,7 @@
 
                                                 <li class="layout-color with-sub-menu hover">
                                                     <p class="close-menu"></p>
-                                                    <a href="" class="clearfix">
+                                                    <a href="/" class="clearfix">
                                                         <strong>
                                                             Inicio
                                                         </strong>
@@ -242,7 +242,7 @@
 
                                                 <li class="layout-color with-sub-menu hover">
                                                     <p class="close-menu"></p>
-                                                    <a href="" class="clearfix">
+                                                    <a href="/acerca_de" class="clearfix">
                                                         <strong>
                                                             Acerca de
                                                         </strong>
@@ -253,7 +253,7 @@
 
                                                 <li class="layout-color with-sub-menu hover">
                                                     <p class="close-menu"></p>
-                                                    <a href="" class="clearfix">
+                                                    <a href="/contacto" class="clearfix">
                                                         <strong>
                                                             Contacto
                                                         </strong>
@@ -288,295 +288,293 @@
 </header>
 @yield('contenido')
 
-<footer class="footer-container typefooter-2">
+ <footer class="footer-container typefooter-2">
 
-    <div class="footer-main collapse description-has-toggle" id="collapse-footer">
+            <div class="footer-main collapse description-has-toggle" id="collapse-footer">
 
-        <div class="so-page-builder">
-            <section id="h2-footer-top" class="section-style footer-top ">
-                <div class="container page-builder-ltr">
-                    <div class="row row_hgm4  row-style ">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_yklu  col-style">
-                            <div class="module  ">
-
-
-                                <ul class="socials">
-                                    <li class="twitter"><a class="_blank" href="#" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-                                    <li class="facebook"><a class="_blank" href="#" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-                                    <li class="google_plus"><a class="_blank" href="#" target="_blank"><i class="fa fa-google-plus"></i><span>Google Plus</span></a></li>
-                                    <li class="skype"><a class="_blank" href="#" target="_blank"><i class="fa fa-skype"></i><span>Skype</span></a></li>
-                                    <li class="pinterest"><a class="_blank" href="#" target="_blank"><i class="fa fa-pinterest"></i><span>Pinterest</span></a></li>
-                                    <li class="youtube_play"><a class="_blank" href="#" target="_blank"><i class="fa fa-youtube-play"></i><span>Youtube play</span></a></li>
-                                </ul>
+                <div class="so-page-builder">
+                    <section id="h2-footer-top" class="section-style footer-top ">
+                        <div class="container page-builder-ltr">
+                            <div class="row row_hgm4  row-style ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_yklu  col-style">
+                                    <div class="module  ">
 
 
-                            </div>
+                                        <ul class="socials">
+                                            <li class="twitter"><a class="_blank" href="#" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+                                            <li class="facebook"><a class="_blank" href="#" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                                            <li class="google_plus"><a class="_blank" href="#" target="_blank"><i class="fa fa-google-plus"></i><span>Google Plus</span></a></li>
+                                            <li class="skype"><a class="_blank" href="#" target="_blank"><i class="fa fa-skype"></i><span>Skype</span></a></li>
+                                            <li class="pinterest"><a class="_blank" href="#" target="_blank"><i class="fa fa-pinterest"></i><span>Pinterest</span></a></li>
+                                            <li class="youtube_play"><a class="_blank" href="#" target="_blank"><i class="fa fa-youtube-play"></i><span>Youtube play</span></a></li>
+                                        </ul>
 
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col_3sv1  col-style">
 
+                                    </div>
 
-
-
-                            <div class="module newsletter-footer2">
-                                <div class="icon-eveloper hidden">
-                                    <svg class="icon icon-icon-eveloper">
-                                        <use xlink:href="#icon-icon-eveloper"></use>
-                                    </svg>
                                 </div>
-                                <div class="newsletter" style="width:100%  ; background-color: #fff ; ">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col_3sv1  col-style">
 
 
-                                    <div class="title-block">
-                                        <div class="page-heading font-title">
-                                            Sign Up For Newsletter & Get<span> 20% Off</span>
+
+
+                                    <div class="module newsletter-footer2">
+                                        <div class="icon-eveloper hidden">
+                                            <svg class="icon icon-icon-eveloper">
+                                                <use xlink:href="#icon-icon-eveloper"></use>
+                                            </svg>
                                         </div>
-                                        <div class="promotext">Support team 24/7 at (844) 555-8386</div>
-                                    </div>
+                                        <div class="newsletter" style="width:100%  ; background-color: #fff ; ">
 
-                                    <div class="block_content">
-                                        <form method="post" id="signup" name="signup" class="form-group form-inline signup send-mail">
-                                            <div class="form-group">
-                                                <div class="input-box">
-                                                    <input type="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" name="txtemail" size="55">
+
+                                            <div class="title-block">
+                                                <div class="page-heading font-title">
+                                                    Sign Up For Newsletter & Get<span> 20% Off</span>
                                                 </div>
-                                                <div class="subcribe">
-                                                    <button class="btn btn-primary btn-default font-title" type="submit" onclick="return subscribe_newsletter();" name="submit">
-                                                        Subscribe
-                                                    </button>
-                                                </div>
+                                                <div class="promotext">Support team 24/7 at (844) 555-8386</div>
                                             </div>
-                                        </form>
+
+                                            <div class="block_content">
+                                                <form method="post" id="signup" name="signup" class="form-group form-inline signup send-mail">
+                                                    <div class="form-group">
+                                                        <div class="input-box">
+                                                            <input type="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" name="txtemail" size="55">
+                                                        </div>
+                                                        <div class="subcribe">
+                                                            <button class="btn btn-primary btn-default font-title" type="submit" onclick="return subscribe_newsletter();" name="submit">
+                                                                Subscribe
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
 
 
+                                            </div>
+                                            <!--/.modcontent-->
+
+                                        </div>
+
+
+
+                                        <script type="text/javascript">
+                                            function subscribe_newsletter() {
+                                                var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                var email = $('#txtemail').val();
+                                                var d = new Date();
+                                                var createdate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+                                                var status = 0;
+                                                var dataString = 'email=' + email + '&createdate=' + createdate + '&status=' + status;
+
+                                                if (email != "") {
+
+                                                    if (!emailpattern.test(email)) {
+
+                                                        $('.alert').remove();
+                                                        $('.send-mail').after('<div class="alert alert-danger " role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> Invalid Email </div>')
+                                                        return false;
+                                                    } else {
+                                                        $.ajax({
+                                                            url: 'index.php?route=extension/module/so_newletter_custom_popup/newsletter',
+                                                            type: 'post',
+                                                            data: dataString,
+                                                            dataType: 'json',
+                                                            success: function(json) {
+                                                                $('.alert').remove();
+                                                                if (json.message == "Subscription Successfull") {
+                                                                    $('.send-mail').after('<div class="alert alert-success" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> ' + json.message + '</div>');
+                                                                    setTimeout(function() {
+                                                                        var this_close = $('.popup-close');
+                                                                        this_close.parent().css('display', 'none');
+                                                                        this_close.parents().find('.so_newletter_custom_popup_bg').removeClass('popup_bg');
+                                                                    }, 3000);
+
+                                                                } else {
+                                                                    $('.send-mail').after('<div class="alert alert-danger" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> ' + json.message + '</div>');
+                                                                }
+                                                                var x = document.getElementsByClassName('signup');
+                                                                for (i = 0; i < x.length; i++) {
+                                                                    x[i].reset();
+                                                                }
+                                                            }
+                                                        });
+                                                        return false;
+                                                    }
+                                                } else {
+                                                    alert("Email is required");
+                                                    $(email).focus();
+                                                    return false;
+                                                }
+                                            }
+
+                                        </script>
                                     </div>
-                                    <!--/.modcontent-->
+
+
 
                                 </div>
 
+                            </div>
+                        </div>
 
+                    </section>
+                    <div class="container page-builder-ltr">
+                        <div class="row row_zr00  row-style footer-middle ">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col_qv1q  col-style">
+                                <div class="infos-footer box-footer">
+                                    <h3 class="modtitle">Contacto</h3>
+                                    <ul>
+                                        <li class="adres">
+                                            <i class="icon-map-pin"></i>5611 Wellington Road, Suite 115, Gainesville, VA 20155
+                                        </li>
+                                        <li class="phone">
+                                            <i class="icon-phone-call"></i>464-112-4092
+                                        </li>
+                                        <li class="mail">
+                                            <i class="icon-mail1"></i><a href="mailto:contact@yourdomain.com">info@jdevs.com.mx</a>
+                                        </li>
 
-                                <script type="text/javascript">
-                                    function subscribe_newsletter() {
-                                        var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                                        var email = $('#txtemail').val();
-                                        var d = new Date();
-                                        var createdate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-                                        var status = 0;
-                                        var dataString = 'email=' + email + '&createdate=' + createdate + '&status=' + status;
+                                    </ul>
+                                </div>
 
-                                        if (email != "") {
-
-                                            if (!emailpattern.test(email)) {
-
-                                                $('.alert').remove();
-                                                $('.send-mail').after('<div class="alert alert-danger " role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> Invalid Email </div>')
-                                                return false;
-                                            } else {
-                                                $.ajax({
-                                                    url: 'index.php?route=extension/module/so_newletter_custom_popup/newsletter',
-                                                    type: 'post',
-                                                    data: dataString,
-                                                    dataType: 'json',
-                                                    success: function(json) {
-                                                        $('.alert').remove();
-                                                        if (json.message == "Subscription Successfull") {
-                                                            $('.send-mail').after('<div class="alert alert-success" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> ' + json.message + '</div>');
-                                                            setTimeout(function() {
-                                                                var this_close = $('.popup-close');
-                                                                this_close.parent().css('display', 'none');
-                                                                this_close.parents().find('.so_newletter_custom_popup_bg').removeClass('popup_bg');
-                                                            }, 3000);
-
-                                                        } else {
-                                                            $('.send-mail').after('<div class="alert alert-danger" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> ' + json.message + '</div>');
-                                                        }
-                                                        var x = document.getElementsByClassName('signup');
-                                                        for (i = 0; i < x.length; i++) {
-                                                            x[i].reset();
-                                                        }
-                                                    }
-                                                });
-                                                return false;
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_vm1j  col-style">
+                                <div class="box-service box-footer clearfix">
+                                    <h3 class="modtitle">Horario</h3>
+                                    <div class="modcontent">
+                                        <ul class="menu">
+                                        <?php
+                                          $query = "select * from horario ";
+                                          $horarios=DB::select($query);  
+                                            foreach($horarios as $horario)
+                                            {
+                                             echo ' <li>'.$horario->dia.' -> '.$horario->hora_inicial.'-'.$horario->hora_final.'</li>';   
                                             }
-                                        } else {
-                                            alert("Email is required");
-                                            $(email).focus();
-                                            return false;
-                                        }
-                                    }
+                                        ?>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                                </script>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_qt26  col-style">
+                                <div class="box-service box-footer clearfix">
+                                    <h3 class="modtitle">sb-sv0wi2454294@personal.example.com</h3>
+                                    <div class="modcontent">
+                                        <ul class="menu">
+                                            <li><a href="/">Inicio</a></li>
+                                            <li><a href="/contacto">Contacto</a></li>
+                                            <li><a href="/acerca_de">Acerca de</a></li>
+                                            <li><a href="#">Customer Feedback</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col_crun  col-style">
+                                <div class="box-service box-footer clearfix">
+                                    <h3 class="modtitle">Information</h3>
+                                    <div class="modcontent">
+                                        <ul class="menu">
+                                            <li><a href="#">Caps & Hats</a></li>
+                                            <li><a href="index.php?route=information/sitemap">Site Map</a></li>
+                                            <li><a href="index.php?route=information/contact">Contact Us</a></li>
+                                            <li><a href="index.php?route=account/return/add">Returns</a></li>
+                                            <li><a href="#">Jacket & Coats</a></li>
+                                            <li><a href="#">Underwear & Socks</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                             </div>
 
-
-
                         </div>
-
-                    </div>
-                </div>
-
-            </section>
-            <div class="container page-builder-ltr">
-                <div class="row row_zr00  row-style footer-middle ">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col_qv1q  col-style">
-                        <div class="infos-footer box-footer">
-                            <h3 class="modtitle">Contact Us</h3>
-                            <ul>
-                                <li class="adres">
-                                    <i class="icon-map-pin"></i>5611 Wellington Road, Suite 115, Gainesville, VA 20155
-                                </li>
-                                <li class="phone">
-                                    <i class="icon-phone-call"></i>888 9344 6000 - 888 1234 6789
-                                </li>
-                                <li class="mail">
-                                    <i class="icon-mail1"></i><a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>
-                                </li>
-                                <li class="time">
-                                    <i class="icon-clock"></i>7 Days a week from 10-00 am to 6-00 pm
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_vm1j  col-style">
-                        <div class="box-service box-footer clearfix">
-                            <h3 class="modtitle">Store Location</h3>
-                            <div class="modcontent">
-                                <ul class="menu">
-                                    <li><a href="#">Los Angeles - USA</a></li>
-                                    <li><a href="#">New York - USA</a></li>
-                                    <li><a href="#">California - USA</a></li>
-                                    <li><a href="#">Bangkok - Thailand</a></li>
-                                    <li><a href="#">Paris - France</a></li>
-                                    <li><a href="#">London - England</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_qt26  col-style">
-                        <div class="box-service box-footer clearfix">
-                            <h3 class="modtitle">Customer service</h3>
-                            <div class="modcontent">
-                                <ul class="menu">
-                                    <li><a href="#">Customer Service</a></li>
-                                    <li><a href="index.php?route=account/return/add">Shipping & Returns</a></li>
-                                    <li><a href="#">Track Your Order</a></li>
-                                    <li><a href="#">Help Center</a></li>
-                                    <li><a href="#">Store Location</a></li>
-                                    <li><a href="#">Customer Feedback</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col_crun  col-style">
-                        <div class="box-service box-footer clearfix">
-                            <h3 class="modtitle">Information</h3>
-                            <div class="modcontent">
-                                <ul class="menu">
-                                    <li><a href="#">Caps & Hats</a></li>
-                                    <li><a href="index.php?route=information/sitemap">Site Map</a></li>
-                                    <li><a href="index.php?route=information/contact">Contact Us</a></li>
-                                    <li><a href="index.php?route=account/return/add">Returns</a></li>
-                                    <li><a href="#">Jacket & Coats</a></li>
-                                    <li><a href="#">Underwear & Socks</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
+
+
+            </div>
+            <div class="button-toggle hidden-lg hidden-md">
+                <a class="showmore" data-toggle="collapse" href="#collapse-footer" aria-expanded="false" aria-controls="collapse-footer">
+                    <span class="toggle-more">Show More <i class="fa fa-angle-down"></i></span>
+                    <span class="toggle-less">Show Less <i class="fa fa-angle-up"></i></span>
+                </a>
             </div>
 
-        </div>
+
+
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 copyright-w">
+                            <div class="copyright">
+                                MegaStore © 2020 Demo Store. All Rights Reserved.
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 payment-w">
+                            <img src="image/catalog/demo/payment/payment.png" alt="imgpayment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <section class="social-widgets visible-lg socialwidgets-left ">
+            <ul class="items">
+
+                <li class="item item-01 facebook">
+                    <a href="catalog/view/theme/so-megastore/template/social/facebook.php?account_fb=magentech " class="tab-icon"><span class="fa fa-facebook"></span></a>
+                    <div class="tab-content">
+                        <div class="title">
+                            <h5>FACEBOOK</h5>
+                        </div>
+                        <div class="loading">
+                            <img class="lazyload ajaxloader" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="catalog/view/theme/so-megastore/images/ajax-loader.gif" alt="loader">
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="item item-02 twitter">
+                    <a href="catalog/view/theme/so-megastore/template/social/twitter.php?account_twitter= " class="tab-icon"><span class="fa fa-twitter"></span></a>
+                    <div class="tab-content">
+                        <div class="title">
+                            <h5>TWITTER FEEDS</h5>
+                        </div>
+                        <div class="loading">
+                            <img class="lazyload ajaxloader" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="catalog/view/theme/so-megastore/images/ajax-loader.gif" alt="loader">
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="item item-03 youtube">
+                    <div class="tab-icon"><span class="fa fa-youtube"></span></div>
+                    <div class="tab-content">
+                        <div class="loading">
+                            Custom block Html
+
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
 
 
     </div>
-    <div class="button-toggle hidden-lg hidden-md">
-        <a class="showmore" data-toggle="collapse" href="#collapse-footer" aria-expanded="false" aria-controls="collapse-footer">
-            <span class="toggle-more">Show More <i class="fa fa-angle-down"></i></span>
-            <span class="toggle-less">Show Less <i class="fa fa-angle-up"></i></span>
-        </a>
-    </div>
 
+    <script type="text/javascript">
+        $(function() {
+            $.post("https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=extension/module/d_security_module/check_for_shedule", function(t) {})
+        });
 
-
-    <div class="footer-bottom ">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 copyright-w">
-                    <div class="copyright">
-                        MegaStore © 2020 Demo Store. All Rights Reserved.
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 payment-w">
-                    <img src="image/catalog/demo/payment/payment.png" alt="imgpayment">
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-<section class="social-widgets visible-lg socialwidgets-left ">
-    <ul class="items">
-
-        <li class="item item-01 facebook">
-            <a href="catalog/view/theme/so-megastore/template/social/facebook.php?account_fb=magentech " class="tab-icon"><span class="fa fa-facebook"></span></a>
-            <div class="tab-content">
-                <div class="title">
-                    <h5>FACEBOOK</h5>
-                </div>
-                <div class="loading">
-                    <img class="lazyload ajaxloader" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="catalog/view/theme/so-megastore/images/ajax-loader.gif" alt="loader">
-                </div>
-            </div>
-        </li>
-
-
-
-        <li class="item item-02 twitter">
-            <a href="catalog/view/theme/so-megastore/template/social/twitter.php?account_twitter= " class="tab-icon"><span class="fa fa-twitter"></span></a>
-            <div class="tab-content">
-                <div class="title">
-                    <h5>TWITTER FEEDS</h5>
-                </div>
-                <div class="loading">
-                    <img class="lazyload ajaxloader" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="catalog/view/theme/so-megastore/images/ajax-loader.gif" alt="loader">
-                </div>
-            </div>
-        </li>
-
-
-
-        <li class="item item-03 youtube">
-            <div class="tab-icon"><span class="fa fa-youtube"></span></div>
-            <div class="tab-content">
-                <div class="loading">
-                    Custom block Html
-
-                </div>
-            </div>
-        </li>
-
-    </ul>
-</section>
-
-
-
-</div>
-
-<script type="text/javascript">
-    $(function() {
-        $.post("https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=extension/module/d_security_module/check_for_shedule", function(t) {})
-    });
-
-</script>
+    </script>
 
 </body>
 

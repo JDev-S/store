@@ -153,32 +153,7 @@
                         </div>
 
                         <div class="bottom2 col-lg-6 col-md-6 col-sm-8 col-xs-10">
-                            <div class="search-header-w">
 
-                                <div id="sosearchpro" class="sosearchpro-wrapper so-search ">
-
-                                    <form method="GET" action="index.php">
-                                        <div id="search0" class="search input-group form-group">
-
-                                            <div class="select_category filter_type hidden-sm hidden-xs">
-                                                <select class="no-border chosen-select" name="category_id">
-                                                    <option value="28">&nbsp;&nbsp;&nbsp;Monitors </option>
-                                                </select>
-                                            </div>
-
-                                            <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Search product" name="search">
-                                            <span class="input-group-btn">
-                                                <button type="submit" class="button-search btn btn-default btn-lg" name="submit_search"><i class="icon-search1"></i> </button>
-                                            </span>
-                                        </div>
-
-
-                                        <input type="hidden" name="route" value="product/search" />
-                                    </form>
-                                </div>
-
-
-                            </div>
                         </div>
                         <div class="middle-right col-lg-3 col-md-3 col-sm-4 col-xs-2">
                             <div class="shopping_cart">
@@ -303,7 +278,7 @@
 
                                                         <li class="layout-color with-sub-menu hover">
                                                             <p class='close-menu'></p>
-                                                            <a href="/" class="clearfix">
+                                                            <a href="/acerca_de" class="clearfix">
                                                                 <strong>
                                                                     Acerca de
                                                                 </strong>
@@ -314,7 +289,7 @@
 
                                                         <li class="layout-color with-sub-menu hover">
                                                             <p class='close-menu'></p>
-                                                            <a href="/" class="clearfix">
+                                                            <a href="/contacto" class="clearfix">
                                                                 <strong>
                                                                     Contacto
                                                                 </strong>
@@ -481,35 +456,35 @@
                         <div class="row row_zr00  row-style footer-middle ">
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col_qv1q  col-style">
                                 <div class="infos-footer box-footer">
-                                    <h3 class="modtitle">Contact Us</h3>
+                                    <h3 class="modtitle">Contacto</h3>
                                     <ul>
                                         <li class="adres">
                                             <i class="icon-map-pin"></i>5611 Wellington Road, Suite 115, Gainesville, VA 20155
                                         </li>
                                         <li class="phone">
-                                            <i class="icon-phone-call"></i>888 9344 6000 - 888 1234 6789
+                                            <i class="icon-phone-call"></i>464-112-4092
                                         </li>
                                         <li class="mail">
-                                            <i class="icon-mail1"></i><a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>
+                                            <i class="icon-mail1"></i><a href="mailto:contact@yourdomain.com">info@jdevs.com.mx</a>
                                         </li>
-                                        <li class="time">
-                                            <i class="icon-clock"></i>7 Days a week from 10-00 am to 6-00 pm
-                                        </li>
+
                                     </ul>
                                 </div>
 
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_vm1j  col-style">
                                 <div class="box-service box-footer clearfix">
-                                    <h3 class="modtitle">Store Location</h3>
+                                    <h3 class="modtitle">Horario</h3>
                                     <div class="modcontent">
                                         <ul class="menu">
-                                            <li><a href="#">Los Angeles - USA</a></li>
-                                            <li><a href="#">New York - USA</a></li>
-                                            <li><a href="#">California - USA</a></li>
-                                            <li><a href="#">Bangkok - Thailand</a></li>
-                                            <li><a href="#">Paris - France</a></li>
-                                            <li><a href="#">London - England</a></li>
+                                        <?php
+                                          $query = "select * from horario ";
+                                          $horarios=DB::select($query);  
+                                            foreach($horarios as $horario)
+                                            {
+                                             echo ' <li>'.$horario->dia.' -> '.$horario->hora_inicial.'-'.$horario->hora_final.'</li>';   
+                                            }
+                                        ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -517,14 +492,12 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_qt26  col-style">
                                 <div class="box-service box-footer clearfix">
-                                    <h3 class="modtitle">Customer service</h3>
+                                    <h3 class="modtitle">Links rápidos</h3>
                                     <div class="modcontent">
                                         <ul class="menu">
-                                            <li><a href="#">Customer Service</a></li>
-                                            <li><a href="index.php?route=account/return/add">Shipping & Returns</a></li>
-                                            <li><a href="#">Track Your Order</a></li>
-                                            <li><a href="#">Help Center</a></li>
-                                            <li><a href="#">Store Location</a></li>
+                                            <li><a href="/">Inicio</a></li>
+                                            <li><a href="/contacto">Contacto</a></li>
+                                            <li><a href="/acerca_de">Acerca de</a></li>
                                             <li><a href="#">Customer Feedback</a></li>
                                         </ul>
                                     </div>
