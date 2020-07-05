@@ -26,6 +26,8 @@ Route::get('/contacto', function () {
     return view('/principal/contacto');
 });
 
+Route::post('/contactar', 'EmailController@contact')->name('contact');
+
 Route::get('/registrarse', function () {
     return view('/principal/registrarse');
 });

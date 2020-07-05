@@ -25,13 +25,15 @@
                 <div class="col-sm-6 col-xs-12 info-store">
 
 
-                    
+
                     <h1>Mostrar mapa del lugar</h1>
 
                 </div>
 
                 <div class="col-sm-6 col-xs-12 contact-form">
-                    <form action="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=information/contact " method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form  class="form-horizontal" method="POST" action={{route('contact')}}>
+                            {{ csrf_field() }}
+                        
                         <fieldset>
                             <legend>
                                 <h2>Llena el formulario</h2>
@@ -41,19 +43,25 @@
 
                             <div class="form-group required">
                                 <div class="col-sm-12">
-                                    <input type="text" name="name" value="" id="input-name" class="form-control" placeholder="Nombre completo *">
+                                    <input type="text" name="nombre"  id="nombre" class="form-control" placeholder="Nombre completo *">
 
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
-                                    <input type="text" name="email" value="" id="input-email" class="form-control" placeholder="Correo electronico *">
+                                    <input type="email" name="correo"  id="correo" class="form-control" placeholder="Correo electronico *">
 
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
-                                    <textarea name="enquiry" value="Enquiry" rows="10" id="input-enquiry" placeholder="Escribe tu duda *" class="form-control"></textarea>
+                                    <input type="text" name="tema"  id="tema" class="form-control" placeholder="Asunto *">
+
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <div class="col-sm-12">
+                                    <textarea name="descripcion" value="Enquiry" rows="10" id="descripcion" placeholder="Escribe tu duda *" class="form-control"></textarea>
 
                                 </div>
                             </div>
