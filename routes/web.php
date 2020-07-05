@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/principal/index');
 });
+
+Route::get('/','ProductosController@principal_index');
+Route::get('/productos_categoria','ProductosController@categoria_producto');
+Route::get('/detalle_producto','ProductosController@info_producto');
