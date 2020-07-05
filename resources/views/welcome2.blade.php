@@ -457,13 +457,13 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col_qt26  col-style">
                                 <div class="box-service box-footer clearfix">
-                                    <h3 class="modtitle">sb-sv0wi2454294@personal.example.com</h3>
+                                    <h3 class="modtitle">Links rápidos</h3>
                                     <div class="modcontent">
                                         <ul class="menu">
                                             <li><a href="/">Inicio</a></li>
                                             <li><a href="/contacto">Contacto</a></li>
                                             <li><a href="/acerca_de">Acerca de</a></li>
-                                            <li><a href="#">Customer Feedback</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
