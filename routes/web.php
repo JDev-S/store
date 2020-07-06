@@ -35,3 +35,7 @@ Route::get('/registrarse', function () {
 Route::get('/acerca_de', function () {
     return view('/principal/acerca_de');
 });
+
+
+/*CARRITO DE COMPRA*/
+Route::post('/insertar_carrito','Detalle_ventaController@insertar_carrito')->name('insertar_carrito');
