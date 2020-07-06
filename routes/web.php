@@ -39,3 +39,6 @@ Route::get('/acerca_de', function () {
 
 /*CARRITO DE COMPRA*/
 Route::post('/insertar_carrito','Detalle_ventaController@insertar_carrito')->name('insertar_carrito');
+
+/*AGREGAR A FAVORITOS O QUITAR DE FAVORITOS*/
+Route::post('/insertar_eliminar_favorito','FavoritosController@insertar_eliminar')->name('insertar_eliminar_favorito');

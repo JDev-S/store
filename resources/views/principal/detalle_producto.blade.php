@@ -102,7 +102,7 @@
                                         <div class="add-to-links wish_comp">
                                             <ul class="blank">
                                                 <li class="wishlist">
-                                                    <a onclick="wishlist.add(137);"><i class="fa fa-heart"></i></a>
+                                                    <a onclick="favoritos();"><i class="fa fa-heart"></i></a>
                                                 </li>
 
                                             </ul>
@@ -1139,6 +1139,34 @@
         });
 
     }
+
+</script>
+<script>
+    function favoritos(){
+            //document.getElementById('direccion').innerHTML = ''
+            var mensaje = "";
+            
+                var id_alimento = document.getElementById("id_alimento").value;
+                alert(id_alimento);
+                var token = '{{csrf_token()}}';
+                var data = {
+                    id_alimento: id_alimento,
+                    _token: token
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/insertar_eliminar_favorito",
+                    data: data,
+                    success: function(msg) {
+                       var datos = JSON.parse(msg);
+                       alert(datos);
+                    }
+                });
+
+        }
+
+
 
 </script>
 @stop
