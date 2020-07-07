@@ -44,7 +44,7 @@ class Mercado_pagoController extends Controller
     public function pago_por_mercado(Request $input)
     {
 
-       echo 'Hola';
+       var_dump($input->all());
     }
     
     

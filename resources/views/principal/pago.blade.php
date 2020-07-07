@@ -64,9 +64,9 @@ $preference = new MercadoPago\Preference();
 
 
 $preference->back_urls = array(
-    "success" => "https://www.tu-sitio/success",
-    "failure" => "http://www.tu-sitio/failure",
-    "pending" => "http://www.tu-sitio/pending"
+    "success" => "https://192.168.0.7:800/success",
+    "failure" => "http://192.168.0.7:8000/failure",
+    "pending" => "http://192.168.0.7:8000/pending"
 );
 $preference->auto_return = "approved";
 
@@ -77,6 +77,7 @@ $preference->save();
 
 
 <form action={{route('pago_por_mercado')}} method="POST">
+    {{ csrf_field() }}
   <script
    src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
     data-preference-id="<?php echo $preference->id; ?>">
