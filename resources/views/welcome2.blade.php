@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Men’s Clothing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @yield('metas')
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 
     <link rel="stylesheet" href="/catalog/view/javascript/bootstrap/css/bootstrap.min.css">

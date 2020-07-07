@@ -56,3 +56,13 @@ Route::post('/ingresar_direccion','Detalle_ventaController@ingresar_direccion')-
 
 /*AGREGAR A LA TABLA VENTA, REALIZAR PAGO Y AL HISTORIAL EN DETALLE VENTA*/
 Route::post('/insertar_venta','Detalle_ventaController@insertar_venta')->name('insertar_venta');
+
+
+/*PAGAR POR MERCADO PAGO*/
+Route::get('/pago', function () {
+    return view('/principal/pago');
+});
+//Route::post('pago_por_mercado','Mercado_pagoController@pago_por_mercado')->name('pago_por_mercado');
+
+Route::post('/pago_por_mercado','Mercado_pagoController@pago_por_mercado')->name('pago_por_mercado');
+

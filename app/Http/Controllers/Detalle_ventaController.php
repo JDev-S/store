@@ -114,20 +114,21 @@ class Detalle_ventaController extends Controller
     
     public function insertar_venta(Request $input)
     {
-       var_dump($input->all());
-        die();
+    
         $id_usuario=$input['id_usuario'];
         $total=$input['total'];
         $id_direccion=$input['id_direccion'];
         $id_metodo=$input['id_metodo'];
         
+        
         if($id_metodo==1)
         {
             echo 'EFECTIVO';
+            //MANDAR A ESE METODO DE PAGO
         }else
             if($id_metodo==2)
             {
-                echo 'TRANSFERENCIA';
+               echo 'TRANSFERENCIA';
             }
              else
                  if($id_metodo==3)
@@ -137,10 +138,12 @@ class Detalle_ventaController extends Controller
                  else
                      if($id_metodo==4)
                      {
-                       echo 'MERCADO PAGO';
+                      echo 'MERCADO PAGO';
                      }
-       // $query=DB::insert('INSERT INTO venta (id_venta, id_usuario, folio, id_metodo_pago, costo_envio, total_venta, status_confirmacion_pedido, status_pago_recibido, status_reparticion, status_venta_entrega, fecha_venta, fecha_confirmacion_pedido, fecha_reparticion, fecha_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[null,$id_usuario,,$id_metodo,0,$total,0,0,0,0,0,0,0,0]);
+        //$query=DB::insert('INSERT INTO venta (id_venta, id_usuario, folio, id_metodo_pago, costo_envio, total_venta, status_confirmacion_pedido, status_pago_recibido, status_reparticion, status_venta_entrega, fecha_venta, fecha_confirmacion_pedido, fecha_reparticion, fecha_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[null,$id_usuario,,$id_metodo,0,$total,0,0,0,0,0,0,0,0]);
         
     }
+    
+   
     
 }

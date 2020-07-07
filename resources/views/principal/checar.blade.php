@@ -1,10 +1,13 @@
 @extends('welcome2')
+@section('metas')
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+@stop
 @section('contenido')
 @section('styles')
 <link rel="stylesheet" href="/catalog/view/javascript/so_onepagecheckout/css/so_onepagecheckout.css">
 @stop
 
-<div class="container">
+<!--<div class="container">
     <ul class="breadcrumb">
         <li><a href="/"><i class="fa fa-home"></i></a></li>
         <li><a href="/carrito_compra">Carrito de compras</a></li>
@@ -142,7 +145,7 @@
 
                                                     {{$carrito->nombre_alimento}}
                                                     <br>
-
+                                                    <input type="hidden" id="id_usuario" name="id_usuario" value='{{$carrito->id_usuario}}'>
                                                 </td>
                                                 <td class="text-left quantity">
                                                     <div class="input-group">
@@ -158,6 +161,7 @@
                                             <tr>
                                                 <td colspan="4" class="text-left">Sub-Total:</td>
                                                 <td class="text-right">${{$totales[0]->total}}</td>
+                                                <input type="hidden" id="total" name="total" value="{{$totales[0]->total}}">
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="text-left">Costo de envio:</td>
@@ -174,16 +178,19 @@
                         </div>
 
                     </section>
-                    <input type="hidden" value="{{$carrito->id_usuario}}" id="id_usuario" name="id_usuario">
-                    <input type="hidden" value="{{$totales[0]->total}}" id="total" name="total">
+
                     <a class="btn btn-primary " onclick="comprar()">Confirmar orden</a>
+                    
+
                 </div>
             </div>
 
         </div>
     </div>
-</div>
+</div>-->
 
+<a href="/pago "> Ir a pagar</a>
+                   
 @section('scripts')
 <script>
     function comprar() {
@@ -196,20 +203,15 @@
         for (i = 0; i < memo.length; i++) {
             if (memo[i].checked) {
                 id_direccion = memo[i].value;
-
-
-
             }
         }
 
         for (i = 0; i < pago.length; i++) {
             if (pago[i].checked) {
                 id_metodo = pago[i].value;
-
-
-
             }
         }
+
 
         if (id_direccion != "") {
             alert("ID DE DIRECCION" + id_direccion);
@@ -217,8 +219,9 @@
                 alert("ID de pago" + id_metodo);
 
 
-                var id_usuario = document.getElementsByName('id_usuario');
-                var total = document.getElementsByName('total');
+                var id_usuario = document.getElementById('id_usuario').value;
+                var total = document.getElementById('total').value;
+                alert("  USUARIO " + id_usuario + "   TOTAL" + total);
                 var token = '{{csrf_token()}}';
                 var data = {
                     id_usuario: id_usuario,
@@ -233,8 +236,6 @@
                     url: "/insertar_venta",
                     data: data,
                     success: function(msg) {
-                        var datos = JSON.parse(msg);
-                        //alert(datos);
                         alert(msg);
                     }
                 });
