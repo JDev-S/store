@@ -94,7 +94,7 @@
 
                     </li>
 
-                    <li class="log login"><a class="link-lg" href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=account/login ">Iniciar sesión </a>/<a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=account/register">Crear una cuenta</a></li>
+                    <li class="log login"><a class="link-lg" href="/iniciar_sesion ">Iniciar sesión </a>/<a href="/registrarse">Crear una cuenta</a></li>
                 </ul>
             </div>
 

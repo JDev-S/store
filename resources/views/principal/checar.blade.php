@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/catalog/view/javascript/so_onepagecheckout/css/so_onepagecheckout.css">
 @stop
 
-<!--<div class="container">
+<div class="container">
     <ul class="breadcrumb">
         <li><a href="/"><i class="fa fa-home"></i></a></li>
         <li><a href="/carrito_compra">Carrito de compras</a></li>
@@ -102,26 +102,6 @@
                 </div>
 
                 <div class="col-right col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <section class="section-left">
-                        <div class="ship-payment">
-
-                            <div class="checkout-content checkout-payment-methods">
-                                <h2 class="secondary-title"><i class="fa fa-credit-card"></i>Metodos de pago</h2>
-                                <div class="box-inner">
-                                    @foreach($metodos as $metodo)
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="metodo" id="metodo" value="{{$metodo->id_metodo_de_pago}}">
-                                            {{$metodo->metodo_pago}}
-                                        </label>
-
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
                     <section class="section-right">
 
                         <div class="checkout-content checkout-cart">
@@ -176,21 +156,41 @@
                                 </div>
                             </div>
                         </div>
-
                     </section>
+                    <section class="section-left">
+                        <div class="ship-payment">
 
-                    <a class="btn btn-primary " onclick="comprar()">Confirmar orden</a>
-                    
+                            <div class="checkout-content checkout-payment-methods">
+                                <h2 class="secondary-title"><i class="fa fa-credit-card"></i>Metodos de pago</h2>
+                                <div class="box-inner">
+
+                                    <div class="radio">
+                                        <label>
+                                            Mercado Pago
+                                            <form action={{route('pago_por_mercado')}} method="POST">
+                                                {{ csrf_field() }}
+                                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
+                                                </script>
+                                            </form>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!--<a class="btn btn-primary " onclick="comprar()">Confirmar orden</a>-->
 
                 </div>
             </div>
 
         </div>
     </div>
-</div>-->
+</div>
 
-<a href="/pago "> Ir a pagar</a>
-                   
+<!--<a href="/pago "> Ir a pagar</a>-->
+
 @section('scripts')
 <script>
     function comprar() {
@@ -212,41 +212,50 @@
             }
         }
 
-
-        if (id_direccion != "") {
-            alert("ID DE DIRECCION" + id_direccion);
-            if (id_metodo != "") {
-                alert("ID de pago" + id_metodo);
+        if (id_metodo == '4' && id_direccion != "") {
 
 
-                var id_usuario = document.getElementById('id_usuario').value;
-                var total = document.getElementById('total').value;
-                alert("  USUARIO " + id_usuario + "   TOTAL" + total);
-                var token = '{{csrf_token()}}';
-                var data = {
-                    id_usuario: id_usuario,
-                    id_direccion: id_direccion,
-                    id_metodo: id_metodo,
-                    total: total,
-                    _token: token
-                };
-
-                $.ajax({
-                    type: "POST",
-                    url: "/insertar_venta",
-                    data: data,
-                    success: function(msg) {
-                        alert(msg);
-                    }
-                });
 
 
-            } else {
-                alert("No selecciono el metodo de pago");
-            }
-        } else {
-            alert("No selecciono a que direccion se entregara");
         }
+
+
+
+
+        /*if (id_direccion != "") {
+        alert("ID DE DIRECCION" + id_direccion);
+        if (id_metodo != "") {
+        alert("ID de pago" + id_metodo);
+
+        var id_usuario = document.getElementById('id_usuario').value;
+        var total = document.getElementById('total').value;
+        alert(" USUARIO " + id_usuario + " TOTAL" + total);
+        var token = '{{csrf_token()}}';
+        var data = {
+        id_usuario: id_usuario,
+        id_direccion: id_direccion,
+        id_metodo: id_metodo,
+        total: total,
+        _token: token
+        };
+        if(id_met)
+        $.ajax({
+        type: "POST",
+        url: "/insertar_venta",
+        data: data,
+        success: function(msg) {
+
+
+        }
+        });
+
+
+        } else {
+        alert("No selecciono el metodo de pago");
+        }
+        } else {
+        alert("No selecciono a que direccion se entregara");
+        }*/
 
     }
 

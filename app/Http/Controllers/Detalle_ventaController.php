@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Http\Controllers\Mercado_pagoController;
 
 class Detalle_ventaController extends Controller
 {
@@ -77,6 +78,7 @@ class Detalle_ventaController extends Controller
         public function checar()
     {
         $id_usuario=13;
+        $id_direccion=3;
         $direcciones=DB::select("select * from direccion where id_usuario =$id_usuario");
             
         $carrito_compras=DB::select('select * from usuario INNER join carrito_compras on usuario.id_usuario=carrito_compras.id_usuario inner join alimentos on alimentos.id_alimento=carrito_compras.id_alimento inner join categoria on categoria.id_categoria=alimentos.id_categoria where usuario.id_usuario='.$id_usuario);
@@ -84,8 +86,10 @@ class Detalle_ventaController extends Controller
         $totales=DB::select('select id_usuario, sum(alimentos.precio* carrito_compras.cantidad) as total from carrito_compras inner join alimentos on carrito_compras.id_alimento=alimentos.id_alimento where id_usuario ='.$id_usuario);
             
         $metodos=DB::select('select * from metodo_de_pago where eliminado=0');
+        $preference=(new Mercado_pagoController)->Detalle_Mercado_Pago($id_usuario,$id_direccion);    
+      
         
-        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos'));
+        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos','preference'));
         
     }
     
@@ -110,8 +114,6 @@ class Detalle_ventaController extends Controller
          return redirect()->action('Detalle_ventaController@checar')->withInput();
     }
     
-    
-    
     public function insertar_venta(Request $input)
     {
     
@@ -119,7 +121,6 @@ class Detalle_ventaController extends Controller
         $total=$input['total'];
         $id_direccion=$input['id_direccion'];
         $id_metodo=$input['id_metodo'];
-        
         
         if($id_metodo==1)
         {
@@ -134,16 +135,17 @@ class Detalle_ventaController extends Controller
                  if($id_metodo==3)
                  {
                      echo 'PAYPAL';
+                     
                  }
                  else
                      if($id_metodo==4)
                      {
                       echo 'MERCADO PAGO';
+                       
+                         die();
                      }
         //$query=DB::insert('INSERT INTO venta (id_venta, id_usuario, folio, id_metodo_pago, costo_envio, total_venta, status_confirmacion_pedido, status_pago_recibido, status_reparticion, status_venta_entrega, fecha_venta, fecha_confirmacion_pedido, fecha_reparticion, fecha_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[null,$id_usuario,,$id_metodo,0,$total,0,0,0,0,0,0,0,0]);
         
     }
-    
-   
     
 }

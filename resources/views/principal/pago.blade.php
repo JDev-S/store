@@ -29,49 +29,7 @@
 require '../vendor/autoload.php';
 
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-5732551096808997-070101-c41482ef61c7eda5d806c443eba74b98-317162407');
 
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
-
-
-//Crea un objeto del payer
-  $payer = new MercadoPago\Payer();
-  $payer->name = "Charles";
-  $payer->surname = "Luevano";
-  $payer->email = "charles@hotmail.com";
-  $payer->date_created = "2018-06-02T12:58:41.425-04:00";
-  $payer->phone = array(
-    "area_code" => "",
-    "number" => "949 128 866"
-  );
-  
-  $payer->address = array(
-    "street_name" => "Cuesta Miguel Armendáriz",
-    "street_number" => 1004,
-    "zip_code" => "11020"
-  );
-
-// Crea un ítem en la preferencia
-  $item = new MercadoPago\Item();
-  $item->id = "1234";
-  $item->title = "Heavy Duty Plastic Table";
-  $item->description = "Table is made of heavy duty white plastic and is 96 inches wide and 29 inches tall";
-  $item->category_id = "home";
-  $item->quantity = 7;
-  $item->currency_id = "MXN";
-  $item->unit_price = 75.56;
-
-
-$preference->back_urls = array(
-    "success" => "https://192.168.0.7:800/success",
-    "failure" => "http://192.168.0.7:8000/failure",
-    "pending" => "http://192.168.0.7:8000/pending"
-);
-$preference->auto_return = "approved";
-
-$preference->items = array($item);
-$preference->save();
 ?>
 
 
@@ -79,6 +37,8 @@ $preference->save();
 <form action={{route('pago_por_mercado')}} method="POST">
     {{ csrf_field() }}
   <script
+          
+          
    src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
     data-preference-id="<?php echo $preference->id; ?>">
   </script>

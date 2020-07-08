@@ -36,6 +36,19 @@ Route::get('/acerca_de', function () {
     return view('/principal/acerca_de');
 });
 
+/*NO RECORDAR LA CONTRASEÑA*/
+Route::get('/recuperar_contrasenia', function () {
+    return view('/principal/recuperar_contrasenia');
+});
+/*OBTENER LA CONTRASEÑA DEL USUARIO*/
+Route::post('/obtener_contrasenia','UsuarioController@obtener_contrasenia')->name('obtener_contrasenia');
+
+
+/*INICIO DE SESION*/
+Route::get('/iniciar_sesion','UsuarioController@mostrar_login');
+
+/*Logueo*/
+Route::post('/login','UsuarioController@login')->name('login');
 
 /*INGRESAR AL CARRITO DE COMPRA*/
 Route::post('/insertar_carrito','Detalle_ventaController@insertar_carrito')->name('insertar_carrito');
@@ -65,4 +78,7 @@ Route::get('/pago', function () {
 //Route::post('pago_por_mercado','Mercado_pagoController@pago_por_mercado')->name('pago_por_mercado');
 
 Route::post('/pago_por_mercado','Mercado_pagoController@pago_por_mercado')->name('pago_por_mercado');
+
+/*REGISTRO DEL USUARIO TIPO CLIENTE */
+Route::post('/registro','UsuarioController@registro')->name('registro');
 
