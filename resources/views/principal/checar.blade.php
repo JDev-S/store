@@ -21,7 +21,7 @@
             <div class="so-onepagecheckout layout1 ">
                 <div class="col-left col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="checkout-content checkout-register">
-                        <fieldset id="address">
+                        <!--<fieldset id="address">
                             <h2 class="secondary-title"><i class="fa fa-map-marker"></i>Mis direcciones <h6>Elige una direccion para entregar tu compra</h6>
                             </h2>
                             <div class="">
@@ -96,7 +96,7 @@
 
                             </div>
 
-                        </fieldset>
+                        </fieldset>-->
 
                     </div>
                 </div>
@@ -169,7 +169,11 @@
                                             Mercado Pago
                                             <form action={{route('pago_por_mercado')}} method="POST">
                                                 {{ csrf_field() }}
-                                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
+                                                <input type="hidden" name="id_direccion" id="id_direccion" value="{{$id_direccion}}">
+                                                <input type="hidden" name="id_usuario" id="id_usuario" value="{{$direcciones[0]->id_usuario}}">
+                                                <input type="hidden" id="total" name="total" value="{{$totales[0]->total}}">
+                                                <input type="hidden" id="id_metodo" name="id_metodo" value="4">
+                                                 <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
                                                 </script>
                                             </form>
                                         </label>

@@ -87,9 +87,7 @@ class Detalle_ventaController extends Controller
             
         $metodos=DB::select('select * from metodo_de_pago where eliminado=0');
         $preference=(new Mercado_pagoController)->Detalle_Mercado_Pago($id_usuario,$id_direccion);    
-      
-        
-        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos','preference'));
+        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos','preference','id_direccion'));
         
     }
     
@@ -144,7 +142,7 @@ class Detalle_ventaController extends Controller
                        
                          die();
                      }
-        //$query=DB::insert('INSERT INTO venta (id_venta, id_usuario, folio, id_metodo_pago, costo_envio, total_venta, status_confirmacion_pedido, status_pago_recibido, status_reparticion, status_venta_entrega, fecha_venta, fecha_confirmacion_pedido, fecha_reparticion, fecha_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[null,$id_usuario,,$id_metodo,0,$total,0,0,0,0,0,0,0,0]);
+        
         
     }
     

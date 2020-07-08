@@ -44,8 +44,39 @@ class Mercado_pagoController extends Controller
     
     public function pago_por_mercado(Request $input)
     {
-
-       var_dump($input->all());
+        //var_dump($input->all());
+        //die();
+        $id_usuario=$input['id_usuario'];
+        $total=$input['total'];
+        $id_direccion=$input['id_direccion'];
+        $id_metodo=$input['id_metodo'];
+        $fecha=getdate();
+        $status_pago=$input['payment_status'];
+        $fecha_completa=$fecha["mday"].$fecha["mon"].$fecha['year'].$fecha['hours'].$fecha['minutes'].$fecha['seconds'];
+        //$fecha_hoy=$fecha['year'].'-'.$fecha["mon"].'-'.$fecha["mday"];
+        $date = date('Y-m-d');
+        $folio=$id_usuario.$fecha_completa;
+        $folio_venta=sha1($folio);
+        
+        if($status_pago=="approved")
+        {
+            $query=DB::insert('INSERT INTO venta (id_venta, id_usuario, id_metodo_pago, costo_envio, total_venta, status_confirmacion_pedido, status_pago_recibido, status_reparticion, status_venta_entrega, fecha_venta, fecha_confirmacion_pedido, fecha_reparticion, fecha_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[$folio_venta,$id_usuario,$id_metodo,0,$total,0,1,0,0,$date,$date,null,null]);
+            
+            $info_carrito_compras=DB::select("select * from carrito_compras inner join alimentos on alimentos.id_alimento=carrito_compras.id_alimento where carrito_compras.id_usuario='$id_usuario'");
+            
+            foreach($info_carrito_compras as $info_carrito)
+            {
+                 $query2=DB::insert('INSERT INTO detalle_venta (id_venta, id_alimento, cantidad_producto, total) VALUES (?, ?, ?, ?)',[$folio_venta,$info_carrito->id_alimento,$info_carrito->cantidad,$info_carrito->cantidad*$info_carrito->precio]);
+            }
+            
+            $query3=DB::delete("DELETE FROM carrito_compras WHERE carrito_compras.id_usuario='$id_usuario'");  
+            
+        }
+        else
+        {
+            
+        }
+      
     }
     
     
@@ -99,11 +130,11 @@ class Mercado_pagoController extends Controller
          //var_dump($items_array);
          //die();         
          
-        $preference->back_urls = array(
-            "success" => "https://192.168.0.7:800/",
-            "failure" => "http://192.168.0.7:8000/",
-            "pending" => "http://192.168.0.7:8000/"
-        );
+$preference->back_urls = array(
+    "success" => "https://www.tu-sitio/success",
+    "failure" => "http://www.tu-sitio/failure",
+    "pending" => "http://www.tu-sitio/pending"
+);
          
         $preference->auto_return = "approved";
         $preference->items = $items_array;
