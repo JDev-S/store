@@ -15,25 +15,6 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AXOxIUpdCZugq_EOM5jdRg_stGm_CWGxrYW6VcYYhif4eqqXO0CXjfUErsJ2a3KBBAWwXsg_sziagYnB&currency=EUR"></script>
 
     <script>
-       // var item =  new Array(); 
-        var arreglo=[{name:'pastel de chocolate'},{unit_amount:'200.00'},{quantity:'5'},{description:'pastel relleno'}];
-        var aux=[{
-            amount: {currency_code:'MXN',value: '13'},
-            description:"Hola",
-            items:[{
-              "name":'Pastel',
-              //unit_amount:{currency_code:'MXN',value:'1'},
-                "currency":'MXN',
-              "quantity":'13',
-            "price":"3",
-            "tax":"0.01"
-            },
-             
-            ]
-        }];
-        
-        //var aux2[]=
-        
         
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({

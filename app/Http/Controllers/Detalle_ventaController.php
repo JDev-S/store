@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Mercado_pagoController;
-
+use App\Http\Controllers\PaypalController;
 class Detalle_ventaController extends Controller
 {
     public function insertar_carrito(Request $input)
@@ -86,8 +86,15 @@ class Detalle_ventaController extends Controller
         $totales=DB::select('select id_usuario, sum(alimentos.precio* carrito_compras.cantidad) as total from carrito_compras inner join alimentos on carrito_compras.id_alimento=alimentos.id_alimento where id_usuario ='.$id_usuario);
             
         $metodos=DB::select('select * from metodo_de_pago where eliminado=0');
+            
+           /*Informacion de paypal*/
+        $paypal=(new PaypalController)->Detalle_Paypal($id_usuario,$id_direccion); 
+            $items = json_encode($paypal);
+
+        /*Informacion de mercado pago*/    
         $preference=(new Mercado_pagoController)->Detalle_Mercado_Pago($id_usuario,$id_direccion);    
-        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos','preference','id_direccion'));
+        
+        return view('/principal/checar',compact('direcciones','carrito_compras','totales','metodos','preference','id_direccion','items'));
         
     }
     
@@ -111,6 +118,10 @@ class Detalle_ventaController extends Controller
 
          return redirect()->action('Detalle_ventaController@checar')->withInput();
     }
+    
+    
+    
+    
     
     public function insertar_venta(Request $input)
     {

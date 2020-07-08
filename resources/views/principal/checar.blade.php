@@ -173,9 +173,14 @@
                                                 <input type="hidden" name="id_usuario" id="id_usuario" value="{{$direcciones[0]->id_usuario}}">
                                                 <input type="hidden" id="total" name="total" value="{{$totales[0]->total}}">
                                                 <input type="hidden" id="id_metodo" name="id_metodo" value="4">
-                                                 <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
+                                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
                                                 </script>
                                             </form>
+                                        </label>
+                                        <label>
+                                            Paypal
+                                            <div id="paypal-button-container" style="width:50px; height:10px;"></div>
+
                                         </label>
                                     </div>
 
@@ -192,10 +197,40 @@
         </div>
     </div>
 </div>
-
-<!--<a href="/pago "> Ir a pagar</a>-->
-
 @section('scripts')
+
+<script src="https://www.paypal.com/sdk/js?client-id=AXOxIUpdCZugq_EOM5jdRg_stGm_CWGxrYW6VcYYhif4eqqXO0CXjfUErsJ2a3KBBAWwXsg_sziagYnB&currency=MXN">
+</script>
+
+<script>
+    // RENDERIZAR EL BOTON DE PAYPAL
+    paypal.Buttons({
+        style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+            },
+        // CONFIGURAR TRANSACCION
+        createOrder: function(data, actions) {
+            return actions.order.create({
+            purchase_units: [
+               JSON.parse(@json($items))  
+            ]
+            });
+        },
+        // FINALIZAR TRANSACCION    
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                console.log(details);
+                // MOSTRAR MENSAJE CUANDO SE HAGA EL PAGO CORRECTAMENTE
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button-container');
+
+</script>
+
 <script>
     function comprar() {
         alert("entro al metodo de comprar");
@@ -218,19 +253,11 @@
 
         if (id_metodo == '4' && id_direccion != "") {
 
-
-
-
         }
-
-
-
-
         /*if (id_direccion != "") {
         alert("ID DE DIRECCION" + id_direccion);
         if (id_metodo != "") {
         alert("ID de pago" + id_metodo);
-
         var id_usuario = document.getElementById('id_usuario').value;
         var total = document.getElementById('total').value;
         alert(" USUARIO " + id_usuario + " TOTAL" + total);
@@ -248,21 +275,15 @@
         url: "/insertar_venta",
         data: data,
         success: function(msg) {
-
-
         }
         });
-
-
         } else {
         alert("No selecciono el metodo de pago");
         }
         } else {
         alert("No selecciono a que direccion se entregara");
         }*/
-
     }
-
 </script>
 @stop
 @stop
