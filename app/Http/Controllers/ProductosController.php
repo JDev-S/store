@@ -19,17 +19,25 @@ class ProductosController extends Controller
     }
     
     
-    function categoria_producto()
+    function categoria_producto($buscar='')
     {
       
-        
         $categoria=$_GET['categoria'];
-        
         $categorias = DB::table('categoria')->get();
-        
+        if($buscar=='')
+        {
         $alimentos=DB::select("SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria, alimentos.precio,alimentos.fotografia_miniatura FROM alimentos inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and alimentos.id_categoria=$categoria ");
         
         return view('/principal/categoria_producto',compact('alimentos','categorias'));
+        }
+        else
+        {
+             $alimentos=DB::select("SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria, alimentos.precio,alimentos.fotografia_miniatura FROM alimentos inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and alimentos.nombre_alimento like '%$buscar%'");
+        
+            return view('/principal/categoria_producto',compact('alimentos','categorias'));
+        }
+        
+        
         
     }
     

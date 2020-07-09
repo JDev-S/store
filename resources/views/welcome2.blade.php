@@ -107,7 +107,7 @@
             <div class="row">
                 <div class="navbar-logo col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="logo">
-                        <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=common/home"><img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" title="Your Store - Layout 2" alt="Your Store - Layout 2" sizes="228px"></a>
+                        <a href="/"><img class="lazyautosizes lazyloaded" data-sizes="auto" src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" title="Your Store - Layout 2" alt="Your Store - Layout 2" sizes="228px"></a>
 
 
                     </div>

@@ -79,7 +79,7 @@ class Detalle_ventaController extends Controller
     {
         $id_usuario=13;
         $id_direccion=3;
-        $direcciones=DB::select("select * from direccion where id_usuario =$id_usuario");
+        $direcciones=DB::select("select * from direccion where id_direccion =$id_direccion");
             
         $carrito_compras=DB::select('select * from usuario INNER join carrito_compras on usuario.id_usuario=carrito_compras.id_usuario inner join alimentos on alimentos.id_alimento=carrito_compras.id_alimento inner join categoria on categoria.id_categoria=alimentos.id_categoria where usuario.id_usuario='.$id_usuario);
         

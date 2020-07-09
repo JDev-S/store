@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/','ProductosController@principal_index');
-Route::get('/productos_categoria','ProductosController@categoria_producto');
+Route::get('/productos_categoria/{buscar?}','ProductosController@categoria_producto');
 Route::get('/detalle_producto','ProductosController@info_producto');
 
 /*CONTACTO*/
@@ -70,7 +70,6 @@ Route::post('/ingresar_direccion','Detalle_ventaController@ingresar_direccion')-
 /*AGREGAR A LA TABLA VENTA, REALIZAR PAGO Y AL HISTORIAL EN DETALLE VENTA*/
 Route::post('/insertar_venta','Detalle_ventaController@insertar_venta')->name('insertar_venta');
 
-
 /*PAGAR POR MERCADO PAGO*/
 Route::get('/pago', function () {
     return view('/principal/pago');
@@ -82,3 +81,5 @@ Route::post('/pago_por_mercado','Mercado_pagoController@pago_por_mercado')->name
 /*REGISTRO DEL USUARIO TIPO CLIENTE */
 Route::post('/registro','UsuarioController@registro')->name('registro');
 
+/*PAGAR CON PAYPAL*/
+Route::post('/pagar_paypal','PaypalController@pagar_paypal')->name('pagar_paypal');

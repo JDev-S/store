@@ -114,7 +114,7 @@
                             </div>
 
                             <div class="form-group social-share clearfix">
-                                <div class="title-share">Share This</div>
+                                <div class="title-share">Compartir</div>
                                 <div class="title-share"></div>
                                 <div class="wrap-content">
                                     <div class="addthis_inline_share_toolbox" data-url="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=137" data-title="Apple Cinema HD" style="clear: both;">
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group social-share clearfix">
-                                    <img alt="payment" src="image/catalog/demo/payment/payment.png"></div>
+                                    <img alt="payment" src="/images/metodos_de_pago.png"></div>
                             </div>
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
                             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529be2200cc72db5"></script>

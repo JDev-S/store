@@ -218,12 +218,11 @@
                                                                     <div class="product-item-container">
                                                                         <div class="left-block">
 
-                                                                            <div class="product-image-container 	">
-                                                                                <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&product_id=116" target="_self" title="Buffalo cornedbee">
+                                                                            <div class="product-image-container">
 
                                                                                     <img data-sizes="auto" src="{{$ultimo->fotografia_miniatura}}" alt="{{$ultimo->nombre_alimento}}" class="lazyload">
 
-                                                                                </a>
+                                                                               
                                                                             </div>
 
                                                                             <div class="box-label">
@@ -234,7 +233,7 @@
 
                                                                             <div class="caption">
 
-                                                                                <h4><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&product_id=116" title="{{$ultimo->nombre_alimento}}" target="_self">{{$ultimo->nombre_alimento}}</a></h4>
+                                                                                <h4><a href="/detalle_producto?producto={{$ultimo->id_alimento}}" target="_self">{{$ultimo->nombre_alimento}}</a></h4>
                                                                                 <div class="price">
 
                                                                                     ${{$ultimo->precio}}
@@ -246,12 +245,12 @@
 
                                                                             <div class="button-group">
 
-                                                                                <a class="addToCart btn-button" title="Agregar al carrito"><i class="fa fa-shopping-basket"></i>
+                                                                                <a href="/detalle_producto?producto={{$ultimo->id_alimento}}" class="addToCart btn-button" title="Agregar al carrito"><i class="fa fa-shopping-basket"></i>
                                                                                     <span>Agregar al carrito </span>
                                                                                 </a>
 
 
-                                                                                <a  class="wishlist btn-button" title="Agregar a favoritos" > <i class="fa fa-heart"></i></a>
+                                                                                <a href="/detalle_producto?producto={{$ultimo->id_alimento}}" class="wishlist btn-button" title="Agregar a favoritos" > <i class="fa fa-heart"></i></a>
 
 
                                                                             </div>
@@ -581,7 +580,7 @@
                             <div class="module so-deals-ltr home2__deals-carousel">
                                 <div class="head-title">
 
-                                    <h2 class="modtitle font-ct"><span>Lo más vendidos</span></h2>
+                                    <h2 class="modtitle font-ct"><span>Los más vendidos</span></h2>
 
 
                                 </div>
@@ -596,9 +595,9 @@
                                                         <div class="left-block so-quickview">
                                                             <div class="image">
 
-                                                                <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135" target="_self">
+                                                               
                                                                     <img data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$vendido->fotografia_miniatura}}" class="lazyload">
-                                                                </a>
+                                                               
                                                             </div>
 
                                                         </div>
@@ -606,7 +605,7 @@
                                                             <div class="caption">
 
                                                                 <div class="item-timer product_time_135"></div>
-                                                                <h4><a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=product/product&amp;product_id=135" target="_self" title="Replacement Rod Adjusting">{{$vendido->nombre_alimento}}</a></h4>
+                                                                <h4><a href="/detalle_producto?producto={{$vendido->id_alimento}}">{{$vendido->nombre_alimento}}</a></h4>
 
                                                                 <div class="total-price clearfix">
                                                                     <div class="price">
@@ -617,9 +616,9 @@
                                                                 </div>
 
                                                                 <div class="button-group cartinfo--static">
-                                                                    <a class="addToCart btn-button" type="button" data-toggle="tooltip" title="Agregar al carrito" > <i class="fa fa-shopping-basket"></i><span>Agregar al carrito</span></a>
+                                                                    <a href="/detalle_producto?producto={{$vendido->id_alimento}}" class="addToCart btn-button" type="button" data-toggle="tooltip" title="Agregar al carrito" > <i class="fa fa-shopping-basket"></i><span>Agregar al carrito</span></a>
                                                                     
-                                                                    <a class="wishlist btn-button" type="button" data-toggle="tooltip" title="Agregar a favoritos" ><i class="fa fa-heart"></i></a>
+                                                                    <a href="/detalle_producto?producto={{$vendido->id_alimento}}" class="wishlist btn-button" type="button" data-toggle="tooltip" title="Agregar a favoritos" ><i class="fa fa-heart"></i></a>
 
                                                                 </div>
 
@@ -1637,9 +1636,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 @stop
 

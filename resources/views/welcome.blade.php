@@ -11,15 +11,6 @@
     <meta name="keywords" content="ecommerce, fashion, marketplace, modern, multi vendor, multipurpose, page builder, shop, shopping, store, vendor, opencart theme, opencart3, opencart 3 theme" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 
-
-
-
-
-
-
-
-
-
     <link rel="stylesheet" href="/catalog/view/javascript/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/catalog/view/javascript/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/catalog/view/javascript/icomoon/style.min.css">
@@ -90,22 +81,10 @@
     </style>
 
 
-
-
-
-
-
-
-
-
     <link href="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/forma-2.png" rel="icon" />
 
 
 </head>
-
-
-
-
 
 
 
@@ -146,7 +125,7 @@
                     <div class="row">
                         <div class="navbar-logo col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo">
-                                <a href="https://opencart.opencartworks.com/themes/so_megastore/layout2/index.php?route=common/home"><img class="lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" title="Your Store - Layout 2" alt="Your Store - Layout 2" /></a>
+                                <a href="/"><img class="lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://opencart.opencartworks.com/themes/so_megastore/layout2/image/catalog/logo3.png" title="Your Store - Layout 2" alt="Your Store - Layout 2" /></a>
 
 
                             </div>
@@ -165,7 +144,7 @@
                                                 Mi carro
                                             </p>
                                             <span class="total-shopping-cart cart-total-full">
-                                                <span class="items_cart">0</span><span class="items_cart2"> item(s)</span><span class="items_carts"> $0.00 </span>
+                                                <span class="items_cart" id="carrito_cantidad">0</span><span class="items_cart2"> item(s)</span><span class="items_carts" id> $0.00 </span>
                                             </span>
                                         </div>
                                     </a>
