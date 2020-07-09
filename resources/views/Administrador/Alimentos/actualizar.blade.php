@@ -65,25 +65,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom25">Calorias</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom25" placeholder="200" required="" name="calorias" value="{{$alimento->calorias}}">
-                                        <div class="invalid-feedback">
-                                            Price
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom25">Tiempo de preparacion</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom25" placeholder="20-30 " required="" name="tiempo_preparacion" value="{{$alimento->tiempo_preparacion}}">
-                                        <div class="invalid-feedback">
-                                            Price
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="validationCustom12">Descripción</label>
                                     <div class="input-group">

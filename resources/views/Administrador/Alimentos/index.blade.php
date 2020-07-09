@@ -39,7 +39,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                {{ Form::open(array('action' => 'AlimentosController@eliminar', 'method' => 'post','id'=>'student-settings','name'=>'loginform')) }}
+                {{ Form::open(array('action' => 'ProductosController@eliminar', 'method' => 'post','id'=>'student-settings','name'=>'loginform')) }}
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">¿Seguro que desea eliminar el registro?</label>
                 </div>
@@ -68,8 +68,6 @@
                 " <img src='" + objeto.fotografia_miniatura + "' style='width:50px; height:30px;'>" + objeto.nombre_alimento,
                 //objeto.descripcion,
                 objeto.nombre_categoria,
-                objeto.calorias + " Cal",
-                objeto.tiempo_preparacion + "min",
                 "$ " + objeto.precio,
                 '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + objeto.id_alimento + '" data-nombre="' + objeto.nombre_alimento + '">Eliminar</button>' +
                 '<a href="/actualizar_alimento?alimento=' + objeto.id_alimento + '" class="btn btn-primary">Actualizar</a>'
@@ -88,12 +86,7 @@
                 {
                     title: "Categoria"
                 },
-                {
-                    title: "Calorias"
-                },
-                {
-                    title: "Tiempo de preparacion"
-                },
+                
                 {
                     title: "Precio"
                 },

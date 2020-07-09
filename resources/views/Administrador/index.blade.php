@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('welcome3')
 @section('contenido')
 <div class="col-xl-3 col-lg-6 col-md-6">
     <div class="ms-card ms-widget has-graph-full-width ms-infographics-widget">

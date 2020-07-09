@@ -112,16 +112,16 @@
                 </ul>
             </li>
 
-            <li class="menu-item">
+           <!-- <li class="menu-item">
                 <a href="#" class="has-chevron" data-toggle="collapse" data-target="#advanced-elements" aria-expanded="false" aria-controls="advanced-elements"> <span><i class="fa fa-archive fs-16"></i>Mesa </span>
                 </a>
                 <ul id="advanced-elements" class="collapse" aria-labelledby="advanced-elements" data-parent="#side-nav-accordion">
                     <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
-          </li>-->
+          </li>
                     <li> <a href="/admin_mesa">Listado de Mesas</a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
 
             <li class="menu-item">
                 <a href="#" class="has-chevron" data-toggle="collapse" data-target="#form-elements" aria-expanded="false" aria-controls="form-elements"> <span><i class="fa fa-archive fs-16"></i>Metodos de pago </span>
