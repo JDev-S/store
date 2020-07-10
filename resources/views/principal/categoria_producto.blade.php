@@ -6,12 +6,10 @@
 	    		  	</div>
       <ul class="breadcrumb">
                 <li><a href="/"><i class="fa fa-home"></i></a></li>
-                <li><a href="/productos_categoria?categoria={{$alimentos[0]->id_categoria}}">{{$alimentos[0]->nombre_categoria}}</a></li>
+                <li><a href="/productos_categoria?categoria={{$cates[0]->id_categoria}}">{{$cates[0]->nombre_categoria}}</a></li>
               </ul>
     </div>
 </div>
-
-
 
 <div class="container product-listing content-main ">
 
@@ -134,7 +132,7 @@
             <div class="products-category clearfix">
 
 
-                <h3 class="title-category ">{{$alimentos[0]->nombre_categoria}}</h3>
+                <h3 class="title-category ">{{$cates[0]->nombre_categoria}}</h3>
                 <div class="form-group category-info">
 
                 </div>
@@ -151,14 +149,21 @@
                 </div>
 <!---------------------------------------------------------------------------------AQUI VAN LOS PRODUCTOS--->
                 <div class="products-list row nopadding-xs so-filter-gird">
-
-                    @foreach($alimentos as $alimento)
-                    <div class="product-layout product-grid product-grid-4 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <?php
+                    if(empty($alimentos))
+                    {
+                        echo 'No se encontro nungun producto';
+                    }
+                    else
+                    {
+                    foreach($alimentos as $alimento)
+                    {
+                    echo '<div class="product-layout product-grid product-grid-4 col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="product-item-container">
                             <div class="left-block">
 
                                 <div class="product-image-container">
-                                        <img src="{{$alimento->fotografia_miniatura}}" alt="{{$alimento->nombre_alimento}}" title="{{$alimento->nombre_alimento}}" class="img-responsive" id="product-image-120">
+                                        <img src="'.$alimento->fotografia_miniatura.'" alt="'.$alimento->nombre_alimento.'" title="'.$alimento->nombre_alimento.'" class="img-responsive" id="product-image-120">
 
                                     
                                 </div>
@@ -166,9 +171,9 @@
 
                                 <div class="button-group cartinfo--left">
 
-                                    <a  href="/detalle_producto?producto={{$alimento->id_alimento}}" class="addToCart btn-button" type="button" title="Add to Cart" onclick="cart.add('120', '1');"><i class="fa fa-shopping-basket"></i><span>Agregar a carrito</span></a>
+                                    <a  href="/detalle_producto?producto='.$alimento->id_alimento.'" class="addToCart btn-button" type="button" title="Add to Cart" ><i class="fa fa-shopping-basket"></i><span>Agregar a carrito</span></a>
 
-                                    <a href="/detalle_producto?producto={{$alimento->id_alimento}}" class="wishlist btn-button" type="button" title="Add to Wish List" onclick="wishlist.add('120');"><i class="fa fa-heart"></i><span>Agregar a lista de deseos</span></a>
+                                    <a href="/detalle_producto?producto='.$alimento->id_alimento.'" class="wishlist btn-button" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Agregar a lista de deseos</span></a>
 
 
                                 </div>
@@ -177,7 +182,7 @@
                             <div class="right-block">
 
 
-                                <h4><a href="/detalle_producto?producto={{$alimento->id_alimento}}">{{$alimento->nombre_alimento}}</a></h4>
+                                <h4><a href="/detalle_producto?producto='.$alimento->id_alimento.'">'.$alimento->nombre_alimento.'</a></h4>
                                 <div class="rate-history">
 
                                     <div class="ratings">
@@ -211,7 +216,7 @@
                                 <div class="price">
 
                                     <span class="price-new">
-                                        ${{$alimento->precio}}
+                                        $'.$alimento->precio.'
                                     </span>
 
                                 </div>
@@ -224,14 +229,17 @@
 
 
                         </div>
-                    </div>
-                    @endforeach
+                    </div>';
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div class="product-filter product-filter-bottom filters-panel">
                     <div class="row">
                         <div class="col-sm-6 text-left"></div>
-                        <div class="col-sm-6 text-right">Showing 1 to 13 of 13 (1 Pages)</div>
+                        <!--<div class="col-sm-6 text-right">Showing 1 to 13 of 13 (1 Pages)</div>-->
+                        <div class="col-sm-6 text-right">Productos encontrados: <?php  echo count($alimentos);   ?></div>
                     </div>
                 </div>
 
@@ -260,7 +268,7 @@
                                             <div class="input-group">
                                                 <input type="search" class="form-control" placeholder="Buscar producto …" value="" id="buscar" name="buscar" onkeypress="pulsar(event)">
                                                 
-                                                <input type="hidden" id="id_categoria" name="idcategoria" value="{{$alimentos[0]->id_categoria}}">
+                                                <input type="hidden" id="id_categoria" name="idcategoria" value="{{$cates[0]->id_categoria}}">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="button" id="submit_text_search"><i class="icon-search1"></i></button>
                                                 </div>

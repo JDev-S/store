@@ -438,7 +438,7 @@
                                     <h3 class="modtitle">Contacto</h3>
                                     <ul>
                                         <li class="adres">
-                                            <i class="icon-map-pin"></i>5611 Wellington Road, Suite 115, Gainesville, VA 20155
+                                            <i class="icon-map-pin"></i>Paseo de los volcanes #127.
                                         </li>
                                         <li class="phone">
                                             <i class="icon-phone-call"></i>464-112-4092
@@ -484,18 +484,18 @@
 
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col_crun  col-style">
-                                <div class="box-service box-footer clearfix">
-                                    <h3 class="modtitle">Information</h3>
-                                    <div class="modcontent">
+                               <div class="box-service box-footer clearfix">
+                                    <h3 class="modtitle">Ubicación</h3>
+                                    <!--<div class="modcontent">
                                         <ul class="menu">
                                             <li><a href="#">Caps & Hats</a></li>
-                                            <li><a href="index.php?route=information/sitemap">Site Map</a></li>
+                                            <li><a href="">Site Map</a></li>
                                             <li><a href="index.php?route=information/contact">Contact Us</a></li>
                                             <li><a href="index.php?route=account/return/add">Returns</a></li>
                                             <li><a href="#">Jacket & Coats</a></li>
                                             <li><a href="#">Underwear & Socks</a></li>
                                         </ul>
-                                    </div>
+                                    </div>-->
                                 </div>
 
                             </div>
@@ -521,7 +521,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 copyright-w">
                             <div class="copyright">
-                                MegaStore © 2020 Demo Store. All Rights Reserved.
+                                JDev-S © 2020. Desarrollada por <a href="https://jdevs.com.mx/">JDev-S</a>
                             </div>
                         </div>
 
