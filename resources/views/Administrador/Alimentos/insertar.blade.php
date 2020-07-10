@@ -58,25 +58,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom25">Calorias</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom25" placeholder="200" required="" name="calorias">
-                                        <div class="invalid-feedback">
-                                            Price
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom25">Tiempo de preparacion</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom25" placeholder="20-30 " required="" name="tiempo_preparacion">
-                                        <div class="invalid-feedback">
-                                            Price
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="validationCustom12">Descripción</label>
                                     <div class="input-group">
@@ -90,14 +71,12 @@
                                     <label for="validationCustom12">Imagen del alimento</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="fotografia_miniatura" name="fotografia_miniatura">
-                                        <label class="custom-file-label" for="validatedCustomFile">Elige la imagen</label>
+                                        <label class="custom-file-label" >Elige la imagen</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
                                 </div>
                             </div>
                             <!--<button class="btn btn-primary d-block" type="submit">Guardar y añadir</button>-->
-
-
                     </div>
                 </div>
 
@@ -166,18 +145,14 @@
     document.getElementById("fotografia_miniatura").onchange = function(e) {
         // Creamos el objeto de la clase FileReader
         let reader = new FileReader();
-
         alert(e.target.files.length);
         // Leemos el archivo subido y se lo pasamos a nuestro fileReader
         reader.readAsDataURL(e.target.files[0]);
-
         // Le decimos que cuando este listo ejecute el código interno
         reader.onload = function() {
             let preview = document.getElementById('preview'),
                 image = document.createElement('img');
-
             image.src = reader.result;
-
             preview.innerHTML = '';
             preview.append(image);
         };
@@ -193,8 +168,6 @@
         var extPermitidas = /(.PNG|.png|.jpg|.JPG|.JPEG|.jpeg)$/i;
         var message = "";
         var message2 = "";
-
-
         if (fileInput.files.length) {
             document.getElementById('visorArchivo').innerHTML = '';
             document.getElementById('miniatura').innerHTML = '';

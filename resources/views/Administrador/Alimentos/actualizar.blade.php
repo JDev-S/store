@@ -1,6 +1,16 @@
 @extends('welcome3')
 @section('contenido')
-
+@section('styles')
+<style>
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 400px;
+    overflow-y: auto;
+}
+</style>  
+@stop
 @section('metas')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
@@ -16,11 +26,8 @@
                     </div>
                     <?php
                $query2 = "select * from categoria ";
-
-                $data2=DB::select($query2);
-              
+                $data2=DB::select($query2);      
               ?>
-
                     <div class="ms-panel-body">
                         <form enctype="multipart/form-data" class="needs-validation clearfix" novalidate="" method="POST" action={{route('Admin_alimentos_editar')}}>
                             {{ csrf_field() }}
@@ -84,8 +91,6 @@
                                 </div>
                             </div>
                             <!--<button class="btn btn-primary d-block" type="submit">Guardar y añadir</button>-->
-
-
                     </div>
                 </div>
 
@@ -103,13 +108,25 @@
                                     <img src='{{$alimento->fotografia_miniatura}}'>
                                 </div>
                             </div>
-
+  @endforeach
                             <div class="ms-panel-header new">
                                 <p class="medium">Disponibles</p>
                                 <div>
                                     <label class="ms-switch">
-                                        <input type="checkbox" name="disponible" value='1'>
-                                        <span class="ms-switch-slider round"></span>
+                                        <?php 
+                                        if($alimento->disponible==0)
+                                        {
+                                          echo '<input type="checkbox" name="disponible", value="1">'.
+                                          '<span class="ms-switch-slider round"></span>';
+                                            
+                                        }
+                                        else
+                                        {
+                                            echo '<input type="checkbox" name="disponible" value="1" checked>'.
+                                        '<span class="ms-switch-slider round"></span>';
+                                           
+                                        }
+                                         ?>
                                     </label>
                                 </div>
                             </div>
@@ -133,7 +150,7 @@
 
         </div>
     </div>
-    @endforeach
+  
 
     <div class="modal fade" id="modal-5" tabindex="-1" role="dialog" aria-labelledby="modal-5">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -367,8 +384,6 @@
 
 
     function ingresar() {
-       
-        
         //const formData = new FormData();
         //for (const file of inpFile.files) {
         //  formData.append("myFiles[]", file);
@@ -385,8 +400,6 @@
            
         };
         
-        //alert(data.id_alimento);
-
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -399,9 +412,34 @@
             cache: false,
             success: function(msg) {
                 alert(msg);
-                console.log(msg);
-                //datos_datatable.remove();
-                //$('#deleteModal').modal('hide');  
+                var arr = [];
+                var datos = JSON.parse(msg);
+                datos.forEach(objeto => {
+                    var tmp = [];
+                    tmp.push(
+                        "<img src='" + objeto.imagen_muestra + "' style='width:50px; height:30px;'>",
+                        objeto.nombre_alimento,
+                        '<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + objeto.id_imagen_muestra + '" data-nombre="' + objeto.nombre_alimento + '">Eliminar</button>'
+                    );
+                    arr.push(tmp);
+                    console.log(arr);
+                });
+                tabla = $('#data-table-imagenes').DataTable({
+                    destroy: true,
+                    data: arr,
+                    columns: [{
+                            tittle: "Imagen"
+                        },
+                        {
+                            tittle: "Nombre aliemnto"
+                        },
+                        //{defaultContent:'<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-//id="'+objeto.id_imagen_muestra+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'}
+                        {
+                            tittle: "Accion"
+                        },
+                        //{defaultContent:'<button class="eliminar">Eliminar</button>'}
+                    ],
+                });
             }
         });
 

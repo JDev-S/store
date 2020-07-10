@@ -59,7 +59,7 @@
 <script type="text/javascript">
     (function($) {
         'use strict';
-        var datos = JSON.parse('<?= json_encode($alimentos) ?>');
+        var datos = @json($alimentos);
         var arr = [];
 
         datos.forEach(objeto => {

@@ -1,9 +1,19 @@
 @extends('welcome3')
 @section('contenido')
-
+@section('styles')
+<style>
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 400px;
+    overflow-y: auto;
+}
+</style>  
+@stop
 <main class="body-content">
     <div id="btn" style="">
-
+        <a href="Hola"><i class="fa fa-trash-o" aria-hidden="true"></i>hola</a>
     </div>
     @foreach($usuarios as $usuario)
     <form enctype="multipart/form-data" class="needs-validation clearfix" novalidate="" method="POST" action={{route('Admin_usuario_actualizar')}}>
@@ -511,8 +521,8 @@
                         objeto.colonia,
                         objeto.calle,
                         objeto.cp,
-                        '<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + objeto.id_direccion + '" data-nombre="' + objeto.colonia + ' ' + objeto.calle + '">Eliminar</button>' +
-                        '<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="' + objeto.id_direccion + '" data-id2="' + objeto.id_usuario + '"  data-persona="' + objeto.persona_recibe + '"  data-colonia="' + objeto.colonia + '"  data-calle="' + objeto.calle + '"  data-interior="' + objeto.numero_interior + '"  data-exterior="' + objeto.numero_exterior + '"  data-cp="' + objeto.cp + '"  data-referencia="' + objeto.referencia + '"  data-ca="' + objeto.calleA + '" data-cb="' + objeto.calleB + '"  data-telefono="' + objeto.telefono + '"  data-eliminado="' + objeto.eliminado + '">Actualizar</button>'
+                        '<button   class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + objeto.id_direccion + '" data-nombre="' + objeto.colonia + ' ' + objeto.calle + '"><i class="fa fa-trash"></i></button>' +
+                        '<button   class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="' + objeto.id_direccion + '" data-id2="' + objeto.id_usuario + '"  data-persona="' + objeto.persona_recibe + '"  data-colonia="' + objeto.colonia + '"  data-calle="' + objeto.calle + '"  data-interior="' + objeto.numero_interior + '"  data-exterior="' + objeto.numero_exterior + '"  data-cp="' + objeto.cp + '"  data-referencia="' + objeto.referencia + '"  data-ca="' + objeto.calleA + '" data-cb="' + objeto.calleB + '"  data-telefono="' + objeto.telefono + '"  data-eliminado="' + objeto.eliminado + '"><i class="fa fa-pencil-alt"></i></button>'
                     );
                     arr.push(tmp);
                     console.log(arr);
@@ -548,7 +558,7 @@
 
     /*FUNCION PARA OBTENER VALOR DE FILA SELECCIONADA CON EL BOTÓN Y ELIMINARLA*/
     $('#data-table-imagenes').on('click', "button.btn", function() {
-        //alert("hola");
+        alert("hola");
         var data = tabla.row($(this).parents("tr")).data(); //RECUPERA VALOR DE FILA DE DATATABLE
         datos_datatable = $(this).parent().parent(); //REMUEVE FILA DE DATATABLE 
     });
@@ -625,12 +635,15 @@
             data: data,
             success: function(msg) {
                 alert(msg);
+                
                 tabla.row.add([
                     nombre_completo,
                     persona_recibe,
                     colonia,
-                    calle
-
+                    calle,
+                    cp,
+                    '<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + msg + '" data-nombre="' + colonia + ' ' + calle + '"><i class="fa fa-trash"></button>' +
+                        '<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="' + id_direccion + '" data-id2="' + id_usuario + '"  data-persona="' + persona_recibe + '"  data-colonia="' + colonia + '"  data-calle="' + calle + '"  data-interior="' + numero_interior + '"  data-exterior="' + numero_exterior + '"  data-cp="' + cp + '"  data-referencia="' + referencia + '"  data-ca="' + calleA + '" data-cb="' + calleB + '"  data-telefono="' + telefono + '"  data-eliminado="' + 0 + '"><i class="fa fa-pencil-alt"></button>'
                 ]).draw(false);
                 $('#insertModal').modal('hide');
             }
@@ -717,15 +730,47 @@
             url: "/admin_direccionesactualizar",
             data: data,
             success: function(msg) {
-                alert(msg);
-                tabla.row.add([
-                    nombre_completo,
-                    persona_recibe,
-                    colonia,
-                    calle
-
-                ]).draw(false);
-                $('#insertModal').modal('hide');
+                 var arr = [];
+                var datos = JSON.parse(msg);
+                datos.forEach(objeto => {
+                    var tmp = [];
+                    tmp.push(
+                        objeto.nombre_completo,
+                        objeto.persona_recibe,
+                        objeto.colonia,
+                        objeto.calle,
+                        objeto.cp,
+                        '<button   class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="' + objeto.id_direccion + '" data-nombre="' + objeto.colonia + ' ' + objeto.calle + '"><i class="fa fa-trash"></i></button>' +
+                        '<button   class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="' + objeto.id_direccion + '" data-id2="' + objeto.id_usuario + '"  data-persona="' + objeto.persona_recibe + '"  data-colonia="' + objeto.colonia + '"  data-calle="' + objeto.calle + '"  data-interior="' + objeto.numero_interior + '"  data-exterior="' + objeto.numero_exterior + '"  data-cp="' + objeto.cp + '"  data-referencia="' + objeto.referencia + '"  data-ca="' + objeto.calleA + '" data-cb="' + objeto.calleB + '"  data-telefono="' + objeto.telefono + '"  data-eliminado="' + objeto.eliminado + '"><i class="fa fa-pencil-alt"></i></button>'
+                    );
+                    arr.push(tmp);
+                    console.log(arr);
+                });
+                tabla = $('#data-table-imagenes').DataTable({
+                    destroy: true,
+                    data: arr,
+                    columns: [{
+                            tittle: "Nombre (c)"
+                        },
+                        {
+                            tittle: "Persona recibe"
+                        },
+                        {
+                            tittle: "Colonia"
+                        },
+                        {
+                            tittle: "Calle"
+                        },
+                        {
+                            tittle: "CP"
+                        },
+                        //{defaultContent:'<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-//id="'+objeto.id_imagen_muestra+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'}
+                        {
+                            tittle: "Acciones"
+                        },
+                        //{defaultContent:'<button class="eliminar">Eliminar</button>'}
+                    ],
+                });
             }
         });
     }

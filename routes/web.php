@@ -133,3 +133,8 @@ Route::get('/admin_metodo_de_pago','Metodo_pagoController@metodo_pago_mostrar');
 Route::post('/admin_metodo_de_pago_eliminar','Metodo_pagoController@eliminar');
 Route::post('/Admin_metodo_de_pago_insertar','Metodo_pagoController@insertar');
 Route::post('/Admin_metodo_de_pago_actualizar','Metodo_pagoController@actualizar');
+
+/*ADMINISTRADOR DE IMAGENES MUESTRA*/
+Route::get('/admin_imagenes_muestra/{alimento?}','Imagenes_muestraController@imagenes_de_muestra_mostrar');
+Route::post('/admin_imagenes_muestra_eliminar','Imagenes_muestraController@eliminar')->name('admin_imagenes_muestra_eliminar');
+Route::post('/Admin_imagenes_muestra_insertar','Imagenes_muestraController@insertar')->name('Admin_imagenes_muestra_insertar');

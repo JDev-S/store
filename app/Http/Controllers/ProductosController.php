@@ -11,7 +11,6 @@ class ProductosController extends Controller
         public function alimentos_mostrar()
 	{
 		$alimentos=DB::select('select alimentos.id_alimento,alimentos.nombre_alimento,alimentos.id_categoria,alimentos.descripcion,alimentos.fotografia_miniatura,alimentos.precio,categoria.nombre_categoria from alimentos inner join categoria on alimentos.id_categoria=categoria.id_categoria where alimentos.eliminado!=1');
-          
 		return view('/Administrador/Alimentos/index',compact('alimentos'));
     }
 
@@ -32,6 +31,8 @@ class ProductosController extends Controller
     
 	public function insertar(Request $input)
 	{
+        var_dump($input->all());
+        
         $nombre_alimento = $input['nombre_alimento'];
         $id_categoria = $input['id_categoria'];
         $descripcion = $input['descripcion'];
@@ -71,12 +72,13 @@ class ProductosController extends Controller
                 $nombre=time()+$i."_".$nombre_alimento;
                 $file->move(public_path().'/images/',$nombre);
                 $imagen="/images/".$nombre;
-                $query2=DB::insert('insert into imagenes_de_muestra (id_imagen_muestra, id_alimento, imagen_muestra) values ( ?, ?, ?)', [null, $id_alimento, $imagen]);
+                $query2=DB::insert('insert into imagenes_de_muestra (id_imagen_muestra, id_alimento, imagen_muestra) values( ?, ?, ?)', [null, $id_alimento, $imagen]);
                 $imagen="";
                  $i++;
             }
-            return redirect()->action('ProductosController@alimentos_mostrar')->withInput();
+           
         }
+         return redirect()->action('ProductosController@alimentos_mostrar')->withInput();
       }
 	}
 
@@ -115,7 +117,7 @@ class ProductosController extends Controller
             $foto="/images/".$name;
             
             $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', fotografia_miniatura='$foto', precio='$precio', eliminado='$eliminado',  disponible='$dispon' where id_alimento=?",[$id_alimento]);
-            return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
+            return redirect()->action('ProductosController@alimentos_mostrar')->withInput();
         }
         else
         {

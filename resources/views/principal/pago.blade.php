@@ -1,107 +1,13 @@
+@extends('welcome3')
+@section('contenido')
+<h1>Hola</h1>
 
-<!DOCTYPE html>
+@section('scripts')
+<script  type="text/javascript">
+console.log("Hola ");
+console.log(JSON.parse('[{"id_alimento":1,"nombre_alimento":"Carne asada","id_categoria":2,"descripcion":"Carne en su jugo","precio":"200.00","nombre_categoria":"Carnes"},{"id_alimento":2,"nombre_alimento":"Pollo rostizado","id_categoria":2,"descripcion":"Pollo rostizado","precio":"200.00","nombre_categoria":"Carnes"},{"id_alimento":3,"nombre_alimento":"Pastel de  3 chocolate","id_categoria":4,"descripcion":"Pastel de chocolate relleno de chocolate concubertura de chocolate","precio":"200.00","nombre_categoria":"Postres"},{"id_alimento":4,"nombre_alimento":"Pye","id_categoria":4,"descripcion":"pye de queso","fotografia_miniatura":"\/images\/1592495804_Pye","precio":"900.00","nombre_categoria":"Postres"},{"id_alimento":5,"nombre_alimento":"carlota","id_categoria":4,"descripcion":"Carlota de limon","fotografia_miniatura":"\/images\/1592538085_carlota","precio":"200.00","nombre_categoria":"Postres"},{"id_alimento":6,"nombre_alimento":"arrachera","id_categoria":2,"descripcion":"arrachera","fotografia_miniatura":"\/images\/1592611097_arrachera","precio":"200.00","nombre_categoria":"Carnes"},{"id_alimento":7,"nombre_alimento":"Hamburguesa","id_categoria":11,"descripcion":"Hamurguesa de carne de res","fotografia_miniatura":"\/images\/1592974168_Hamburguesa","precio":"90.00","nombre_categoria":"Snacks"},{"id_alimento":8,"nombre_alimento":"cerveza buena","id_categoria":12,"descripcion":"alcohol 30 grados","fotografia_miniatura":"","precio":"40.00","nombre_categoria":"Bebidas"},{"id_alimento":9,"nombre_alimento":"cerveza buena","id_categoria":12,"descripcion":"alcohol 30 grados","fotografia_miniatura":"","precio":"40.00","nombre_categoria":"Bebidas"},{"id_alimento":10,"nombre_alimento":"bistek","id_categoria":2,"descripcion":"rica","fotografia_miniatura":"","precio":"50.00","nombre_categoria":"Carnes"},{"id_alimento":11,"nombre_alimento":"chile negro mmmm","id_categoria":10,"descripcion":"salsa","fotografia_miniatura":"","precio":"50.00","nombre_categoria":"gorditas"},{"id_alimento":12,"nombre_alimento":"delicia ","id_categoria":7,"descripcion":"cake de chocolate","fotografia_miniatura":"","precio":"100.00","nombre_categoria":"pasteles"},{"id_alimento":13,"nombre_alimento":"tapa arterias","id_categoria":2,"descripcion":"pobre collino, lo mataron como puerco","fotografia_miniatura":"","precio":"100000.00","nombre_categoria":"Carnes"},{"id_alimento":14,"nombre_alimento":"churro proteinico con relleno cremoso para JJ","id_categoria":4,"descripcion":"churro con relleno de nata muy cremoso, especial para juan jesus. ultra proteinico y saludable, bajo en calorias","fotografia_miniatura":"","precio":"50.00","nombre_categoria":"Postres"},{"id_alimento":15,"nombre_alimento":"la gordita pasada de gaver","id_categoria":10,"descripcion":"no regresan las libretas y piden hacer las tareas mientras andan \"ocupadas\"","fotografia_miniatura":"","precio":"0.00","nombre_categoria":"gorditas"},{"id_alimento":16,"nombre_alimento":"fruta exotica","id_categoria":11,"descripcion":"delicioso snack nutritivo y muy dulce hecho de papaya, durazno y mel\u00f3n, especielmente para jos\u00e9. Bajo en calor\u00edas y brindan perdida de calorias durante el consumo dependiendo de la duracipn de la comida... puede perderse hasta 1000 cal","fotografia_miniatura":"","precio":"0.00","nombre_categoria":"Snacks"}]'));
 
-<head>
-    <!-- Add meta tags for mobile and IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-</head>
-
-<body>
-    <!-- Set up a container element for the button -->
-    <div id="paypal-button-container"></div>
-
-    <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AXOxIUpdCZugq_EOM5jdRg_stGm_CWGxrYW6VcYYhif4eqqXO0CXjfUErsJ2a3KBBAWwXsg_sziagYnB&currency=EUR"></script>
-
-    <script>
-        
-        // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
-
-            // Set up the transaction
- createOrder: function(data, actions) {
-        return actions.order.create({
-            purchase_units: [
-            {
-                amount: {
-                    currency_code: "EUR",
-                    value: "200.00",
-                    breakdown: {
-                        item_total: {
-                            currency_code: "EUR",
-                            value: "200.00"
-                        }
-                    }
-                },
-                items: [
-                    {
-                        name: "Item 1",
-                        description: "The best item ever",
-
-                        unit_amount: {
-                            currency_code: "EUR",
-                            value: "100.00"
-                        },
-                        quantity: "1"
-                    },
-                    {
-                        name: "Item 2",
-                        description: "Not bad too",
-                       
-                        unit_amount: {
-                            currency_code: "EUR",
-                            value: "50.00"
-                        },
-                        quantity: "2"
-                    }
-                ],
-
-            }
-        ]
-    });
-},
-
-
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-		    console.log(details);
-                    // Show a success message to the buyer
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                });
-            }
-
-
-        }).render('#paypal-button-container');
-    </script>
-    
-    
-     <!--<script>
-        // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
-
-            // Set up the transaction
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '13'
-                        }
-                    }]
-                });
-            },
-
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-		    console.log(details);
-                    // Show a success message to the buyer
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                });
-            }
-
-
-        }).render('#paypal-button-container');
-    </script>-->
-</body>
+   
+</script>
+@stop
+@stop
