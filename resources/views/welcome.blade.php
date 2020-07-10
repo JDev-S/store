@@ -138,20 +138,43 @@
                             <div class="shopping_cart">
                                 <div id="cart" class="btn-shopping-cart">
 
-                                    <a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
-                                        <div class="shopcart">
-                                            <p class="text-shopping-cart">
-                                                Mi carro
-                                            </p>
-                                            <span class="total-shopping-cart cart-total-full">
-                                                <span class="items_cart" id="carrito_cantidad">0</span><span class="items_cart2"> item(s)</span><span class="items_carts" id> $0.00 </span>
-                                            </span>
-                                        </div>
+                                    <a href="/carrito_compra" data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+                                <div class="shopcart">
+                                    <p class="text-shopping-cart">
+                                        Mi carrito
+                                    </p>
+                                    <?php
+                                    /*Obtener el usuario*/
+                                    
+                                   $query2 = "select sum(cantidad) as canti from carrito_compras where id_usuario=13 ";
+
+                                    $cantidad=DB::select($query2);
+                                    
+                                    $query3='select id_usuario, sum(alimentos.precio* carrito_compras.cantidad) as total from carrito_compras inner join alimentos on carrito_compras.id_alimento=alimentos.id_alimento where id_usuario =13';
+                                    $total=DB::select($query3);
+
+                                    if(empty($cantidad) && empty($total))
+                                    {
+                                        echo'<span class="total-shopping-cart cart-total-full">
+                                        <span class="items_cart">0</span><span class="items_cart2"></span><span class="items_carts"> $0.00 </span>
+                                    </span>';
+                                    }
+                                    else
+                                    {
+                                    
+                                         echo'<span class="total-shopping-cart cart-total-full">
+                                        <span class="items_cart">'.$cantidad[0]->canti.'</span><span class="items_cart2"> item(s)</span><span class="items_carts"> $'.$total[0]->total.' </span>
+                                    </span>';
+                                        
+                                   
+                                    }
+                                    ?>
+                                </div>
                                     </a>
 
                                     <ul class="dropdown-menu pull-right shoppingcart-box">
                                         <li>
-                                            <p class="text-center empty">Your shopping cart is empty!</p>
+                                            <a href="/carrito_compra"><p class="text-center empty">Ver mi carrito de compras!</p></a>
                                         </li>
                                     </ul>
                                 </div>
